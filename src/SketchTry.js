@@ -5,8 +5,6 @@ import info from "./info.json";
 export default () => {
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1500, 800).parent(canvasParentRef);
-
-    //table = p5.loadTable("cidades.csv", "csv");
   };
 
   function generateRect(p5) {
@@ -20,6 +18,7 @@ export default () => {
 
   const draw = (p5, show = true) => {
     p5.background(255, 124, 134);
+    // added show just for trial
     show && generateRect(p5);
   };
 
