@@ -1,28 +1,26 @@
 import React from "react";
 import Sketch from "react-p5";
+import info from "./info.json";
 
-let x = 50;
-let y = 50;
-export default (props) => {
-  const setup = (p5, canvasParentRef) => {
-    // use parent to render the canvas in this ref
-    // (without that p5 will render the canvas outside of your component)
-    p5.createCanvas(500, 500).parent(canvasParentRef);
+export default () => {
+  const setup = async (p5, canvasParentRef) => {
+    p5.createCanvas(1500, 800).parent(canvasParentRef);
+
+    //table = p5.loadTable("cidades.csv", "csv");
   };
 
-  const draw = (p5) => {
-    if (p5.mouseIsPressed) {
-      p5.fill(0);
-    } else {
-      p5.fill(255);
+  function generateRect(p5) {
+    for (var i = 0; i < info.length; i++) {
+      let height = info[i].Closeness_To_Dad * 100;
+      p5.fill(123, 243, 123);
+      p5.noStroke();
+      p5.rect(i * 25 + 30, 100, 10, height);
     }
-    p5.ellipse(p5.mouseX, p5.mouseY, 80, 80);
-    // p5.background(0);
-    // p5.ellipse(x, y, 70, 70);
-    // // NOTE: Do not use setState in the draw function or in functions that are executed
-    // // in the draw function...
-    // // please use normal variables or class properties for these purposes
-    // x++;
+  }
+
+  const draw = (p5, show = true) => {
+    p5.background(255, 124, 134);
+    show && generateRect(p5);
   };
 
   return <Sketch setup={setup} draw={draw} />;

@@ -1,0 +1,253 @@
+Serial_Number,Sex,Age,Ethnic_Origin,Place_Of_Birth,District_Child,School_Type_Child,Education_Type_Child,Child_Has_First_Degree,Child_Has_Second_Degree,Child_Has_Third_Degree,Work_Type_Child,Education_Type_Dad,First_Degree_Dad,Second_Degree_Dad,Third_Degree_Dad,Work_Type_Dad,Closeness_To_Dad,First_Degree_Mom,Second_Degree_Mom,Third_Degree_Mom,Closeness_To_Mom,Child_Ed_Business,Child_Ed_Reali,Child_Ed_Humani,Child_Ed_Design,Child_Ed_Tipuli,Child_Ed_Refua,Dad_Ed_Business,Dad_Ed_Reali,Dad_Ed_Humani,Dad_Ed_Design,Dad_Ed_Tipuli,Dad_Ed_Refua,Mom_Ed_Business,Mom_Ed_Reali,Mom_Ed_Humani,Mom_Ed_Design,Mom_Ed_Tipuli,Mom_Ed_Refua
+1,Female,27,Ashkenazi,Israel,Jerusalem,State,STEM and Design,1,0,0,Engineering and Programming,Design,1,0,0,Design,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2,Female,28,Ashkenazi,Israel,North,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Mangement,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+3,Male,27,Ashkenazi,Israel,Center,State,Business Mangement,1,0,0,Finance,Liberal Arts,1,1,0,Human Resources,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+4,Male,30,Ashkenazi,Israel,Tel Aviv,State,STEM,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Education,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+5,Female,30,Ashkenazi,Israel,North,Other,STEM,1,0,0,Engineering and Programming,STEM,0,0,0,Engineering and Programming,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,Female,28,Ashkenazi,Israel,Tel Aviv,State,Liberal Arts,1,0,0,Art/Music,Business Mangement,1,0,0,General Business,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+7,Female,26,Ashkenazi,Israel,Center,State,Other,1,0,0,Design,Liberal Arts,1,1,0,Administration,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+8,Male,26,Mixed,Israel,Center,State,Other,0,0,0,Design,None,0,0,0,Mangement,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+9,Female,25,Mixed,Israel ,Center,State,Design,1,0,0,Design,STEM,0,0,0,Information Systems,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+10,Male,30,Ashkenazi,Israel,Center,State,Other,0,1,0,Academy,STEM,1,0,0,Engineering and Programming,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+11,Female,27,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Law,STEM,1,1,0,Engineering and Programming,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+12,Male,27,Mizrachi,Israel,Jerusalem,Orthodox,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+13,Male,25,Mizrachi,Israel,Jerusalem,State,Other,0,1,0,Engineering and Programming,None,0,0,0,Other,5,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+14,Female,25,Soviet Union,Israel,North,State,Other,1,0,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,3,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+15,Male,23,Mizrachi,Israel,Jerusalem,State,Other,0,0,0,Engineering and Programming,Law,1,0,0,Law,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+16,Female,27,Ashkenazi,Israel,Center,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Catering,5,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+17,Female,26,Mizrachi,Israel,West Bank,Private,Design,1,0,0,Design,Liberal Arts,1,1,0,Education,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+18,Male,25,Mizrachi,Israel ,Center,State-Religious,Other,1,0,0,Engineering and Programming,Law,1,1,0,Law,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+19,Male,41,Ashkenazi ,Israel,Jerusalem,State-Religious,Other,0,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+20,Female,32,Ashkenazi,United States,Jerusalem,State-Religious,Other,0,0,0,Education,Liberal Arts,1,1,0,Finance,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+21,Female,33,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Sales and Marketing,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+22,Female,27,Mizrachi,Israel,Tel Aviv,State,Other,1,0,0,Design,None,0,0,0,Traditional Work,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+23,Female,23,Ashkenazi ,Israel,Center,State-Religious,Design,1,0,0,Design,Business Mangement,1,0,0,General Business,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+24,Female,26,Mizrachi ,Israel ,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,None,0,0,0,General Business,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+25,Female,26,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Therapeutic,None,0,0,0,Mangement,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+26,Female,33,Mizrachi,Israel,North,Other,Other,1,0,0,Education,Business Mangement,0,0,0,Mangement,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+27,Female,33,Other,Israel ,North,State,Other,0,0,0,Therapeutic,STEM,1,1,1,Academy,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+28,Female,27,Mixed,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Business Mangement and Liberal Arts,1,1,0,National Defense Services,5,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+29,Female,54,Ashkenazi,Israel,Unknown,State,Medicine,1,1,1,Medicine,Medicine,1,1,1,Medicine,5,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+30,Female,28,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Finance,Law,1,1,0,Law,4,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+31,Male,29,Ashkenazi,Israel,Tel Aviv,State,Design,1,0,0,Art/Music,Liberal Arts,1,0,0,Art/Music,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+32,Female,27,Ashkenazi ,United States ,Abroad,State-Religious,Other,1,0,0,Sales and Marketing,Unknown,1,1,0,Religion,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+33,Male,28,Mixed,Israel,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,Business Mangement,1,0,0,Finance,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+34,Female,27,Mixed,Israel,Center,State,Liberal Arts,1,0,0,Therapeutic,Business Mangement and STEM,1,1,0,National Defense Services,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+35,Male,23,Mizrachi,Israel,Jerusalem,State-Religious,Other,1,1,0,Engineering and Programming,Liberal Arts,1,0,0,Communication/Language,2,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+36,Female,24,Ashkenazi,Israel,Center,State,Design,1,0,0,Design,Therapeutic,1,0,0,Human Resources,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+37,Female,27,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,STEM,1,0,0,Consulting,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+38,Female,26,Mixed,Israel,North,State,Other,0,0,0,Design,None,0,0,0,Physical Work,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+39,Female,27,Ashkenazi,Israel,Center,State,Liberal Arts,1,0,0,Mangement,Liberal Arts,1,1,0,Transportation,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+40,Female,36,Ashkenazi,Israel,Unknown,State-Religious,Liberal Arts,1,1,0,Art/Music,Liberal Arts,1,1,1,National Defense Services,4,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+41,Male,27,Mixed,Israel,South,State,Other,0,0,0,Consulting,None,0,0,0,Traditional Work,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+42,Female,22,Ashkenazi,Israel,Center,State-Religious,Other,1,0,0,Engineering and Programming,Business Mangement,1,0,0,Finance,3,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+43,Female,27,Ashkenazi,Israel,Jerusalem,Other,Liberal Arts,1,0,0,Law,Law,1,1,0,Law,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+44,Female,22,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Education,Law,1,0,0,Religion,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+45,Female,24,Ashkenazi,United States,Jerusalem,Private,Design,1,0,0,Design,Law,1,0,0,National Defense Services,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+46,Female,28,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,1,1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+47,Female,23,Ashkenazi,Israel,Unknown,State-Religious,Other,0,0,0,Therapeutic,Therapeutic,1,1,0,Human Resources,5,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+48,Female,29,Ashkenazi ,United States,Abroad,State-Religious,Other,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Finance,2,1,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+49,Female,47,Ashkenazi,Israel,North,State,Other,1,0,0,Finance,None,0,0,0,Traditional Work,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+50,Female,30,Ashkenazi,Israel ,Jerusalem,State-Religious,Therapeutic,1,0,0,Therapeutic,Unknown,0,0,0,Other,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+51,Male,29,Ashkenazi,Israel,Jerusalem,State-Religious,Business Mangement,1,0,0,Finance,STEM,1,0,0,Engineering and Programming,4,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+52,Female,27,Mixed,United States,Abroad,State-Religious,Other,1,1,0,Consulting,Unknown,1,1,1,Communication/Language,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+53,Female,24,Mixed,Israel ,Tel Aviv,State,Other,1,0,0,Design,Liberal Arts,1,0,0,Communication/Language,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+54,Female,27,Ashkenazi,United States,Center,State-Religious,Other,1,0,0,Consulting,Medicine,1,1,1,Medicine,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+55,Female,27,Ethiopian,Israel,Haifa,State-Religious,Other,1,0,0,Design,None,0,0,0,Traditional Work,1,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+56,Female,57,Ashkenazi ,United States,Abroad,State-Religious,Other,0,0,0,Other,None,0,0,0,Traditional Work,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+57,Male,28,Mixed,Israel,Jerusalem,State-Religious,STEM and Liberal Arts,1,0,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+58,Male,27,Ashkenazi,Israel,Jerusalem,State-Religious,STEM,1,1,0,Engineering and Programming,Business Mangement,1,0,0,Finance,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+59,Female,30,Ashkenazi,Brazil,North,State,STEM and Design,1,0,0,Design,STEM,1,1,0,Academy,1,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+60,Female,66,Ashkenazi,Israel,Center,State,Other,1,1,0,Education,STEM,1,0,0,Engineering and Programming,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+61,Female,27,Mixed,Israel,Jerusalem,Other,STEM and Design,1,0,0,Engineering and Programming,Medicine,1,1,1,Medicine,1,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+62,Female,27,Mixed,Israel,Jerusalem,State-Religious,STEM,1,1,0,Therapeutic,Unknown,1,1,1,National Defense Services,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+63,Female,26,Soviet Union,Israel,North,Orthodox,Liberal Arts,1,0,0,Therapeutic,STEM,0,1,0,Engineering and Programming,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+64,Female,28,Ashkenazi,Israel,Haifa,State-Religious,Design,1,0,0,Design,Business Mangement,1,0,0,Finance,5,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+65,Female,27,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Finance,Medicine,1,1,1,Medicine,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+66,Male,26,Mixed,Israel,Jerusalem,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Communication/Language,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+67,Male,49,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,1,1,Mangement,Business Mangement and Liberal Arts,1,0,0,General Business,3,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+68,Male,31,Ashkenazi,Israel,Jerusalem,State-Religious,STEM,1,0,0,Engineering and Programming,None,0,0,0,General Business,5,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+69,Female,27,Ashkenazi,Israel,Center,State-Religious,Liberal Arts,1,0,0,Human Resources,Business Mangement and STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+70,Female,26,Mixed,United States,Jerusalem,State-Religious,STEM and Design,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+71,Female,27,Mixed,Israel,Center,Other,Other,0,0,0,Art/Music,Law,1,0,0,Sales and Marketing,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+72,Male,28,Ashkenazi,Israel ,Center,State,Other,1,0,0,Finance,STEM,1,0,0,Academy,5,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+73,Male,24,Ashkenazi,Israel,Jerusalem,State,Other,1,0,0,Engineering and Programming,STEM,1,1,0,Consulting,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+74,Female,27,Ashkenazi,Israel,Center,State,STEM and Design,1,0,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,5,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+75,Female,23,Mixed,Israel,West Bank,State-Religious,Other,1,0,0,Therapeutic,Business Mangement and STEM,1,1,0,Engineering and Programming,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+76,Female,27,Mixed,Israel,West Bank,State,Business Mangement,1,0,0,Consulting,None,0,0,0,Physical Work,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+77,Female,27,Mizrachi,Israel,Center,State,Other,1,0,0,Mangement,Design,1,0,0,Design,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+78,Female,27,Ashkenazi ,Israel ,Center,State,Liberal Arts,1,0,0,Education,Liberal Arts,1,1,0,Education,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+79,Female,27,Ashkenazi,United States,Center,State-Religious,STEM,1,1,0,Academy,Unknown,1,0,0,General Business,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+80,Female,24,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+81,Male,26,Soviet Union,Israel,Haifa,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+82,Female,33,Mixed,Israel ,Unknown,State,STEM,1,0,0,Education,Medicine,1,1,1,Medicine,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+83,Female,33,Ashkenazi ,Israel ,Unknown,State,Medicine,1,1,1,Medicine,STEM,0,1,1,Engineering and Programming,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+84,Male,26,Mizrachi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Design,1,0,0,Design,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+85,Female,28,Mizrachi,Israel,South,State,Other,1,0,0,Engineering and Programming,Liberal Arts,1,1,0,Human Resources,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+86,Male,28,Mixed,Israel,Jerusalem,State-Religious,STEM,1,0,0,Engineering and Programming,None,0,0,0,,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+87,Female,27,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Sales and Marketing,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+88,Female,26,Other,Israel,Haifa,State,Other,1,0,0,Art/Music,Liberal Arts,1,1,1,Education,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+89,Male,28,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Liberal Arts,1,0,0,Sales and Marketing,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+90,Female,29,Ashkenazi,Canada,West Bank,State-Religious,Other,1,0,0,Information Systems,Liberal Arts,1,0,0,Religion,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+91,Female,29,Mixed,Israel,Jerusalem,State-Religious,STEM,1,0,0,Engineering and Programming,None,0,0,0,Information Systems,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+92,Female,27,Mixed,Israel,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+93,Female,28,Ashkenazi,Israel,Center,State,STEM and Liberal Arts,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+94,Female,28,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+95,Female,29,Ashkenazi,Israel,North,State,STEM and Liberal Arts,1,0,0,Education,STEM,1,0,0,Engineering and Programming,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+96,Female,27,Ashkenazi,Israel,Center,State,Other,1,1,0,Academy,Business Mangement,1,1,0,Consulting,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+97,Male,59,Ashkenazi,United States,Abroad,Private,Business Mangement,1,1,0,Finance,Business Mangement,1,0,0,General Business,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+98,Female,26,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Therapeutic,STEM,1,0,0,Education,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+99,Male,26,Mixed,Israel,,State,STEM,1,0,0,Engineering and Programming,Other,0,0,0,Art/Music,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+100,Female,47,Ashkenazi,Israel,Jerusalem,State,Other,1,0,0,Therapeutic,None,0,0,0,Other,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+101,Male,24,Mizrachi,Israel,Center,State-Religious,STEM,1,0,0,Administration,STEM and Liberal Arts,1,0,0,Engineering and Programming,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+102,Female,48,Ashkenazi,Israel,Unknown,State,Other,1,1,0,National Defense Services,Medicine,1,1,1,Medicine,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+103,Male,34,Ashkenazi,United States,Jerusalem,State-Religious,Liberal Arts,1,0,0,Law,STEM,1,0,0,Engineering and Programming,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+104,Male,51,Mizrachi,Israel,Jerusalem,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Catering,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+105,Female,24,Ashkenazi ,Israel,Center,State,STEM and Design,1,0,0,Other,Business Mangement,1,0,0,Mangement,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+106,Male,26,Ashkenazi,Israel,Jerusalem,State,STEM,1,0,0,Engineering and Programming,Medicine,1,1,1,Medicine,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+107,Female,26,Mixed,Israel,Jerusalem,State-Religious,STEM,1,1,0,Other,Business Mangement,1,0,0,Finance,2,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+108,Female,27,Ashkenazi,Israel,Center,State,Other,1,0,0,Sales and Marketing,Business Mangement,1,0,0,Education,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+109,Male,28,Ashkenazi,France,Unknown,Private,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+110,Male,29,Mixed,Israel,Center,State,STEM and Design,1,0,0,Engineering and Programming,None,0,0,0,Mangement,3,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+111,Female,33,Ashkenazi,United States,Abroad,State-Religious,Other,1,1,0,Consulting,Medicine,1,1,1,Medicine,4,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+112,Female,28,Ashkenazi,Israel,Center,State-Religious,Liberal Arts,1,1,0,Law,Business Mangement and STEM,1,1,0,Engineering and Programming,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+113,Female,23,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Law,Law,1,1,0,Law,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+114,Female,26,Mixed,Israel,Center,State-Religious,Other,1,1,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+115,Female,28,Ashkenazi,Israel,Unknown,State,Other,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+116,Female,23,Ashkenazi,Israel,Center,State,Other,1,0,0,Other,STEM,1,0,0,Mangement,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+117,Female,26,Ashkenazi,Israel ,Jerusalem,State-Religious,Other,1,0,0,Education,Law,1,0,0,Law,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+118,Male,27,Soviet Union,Israel,Jerusalem,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Traditional Work,3,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+119,Male,30,Ashkenazi,Uruguay,Center,State,STEM,1,0,0,Engineering and Programming,Medicine,1,1,1,Medicine,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+120,Female,26,Mixed,Israel,Haifa,State,Design,1,0,0,Design,Medicine,1,1,1,Medicine,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+121,Female,28,Ashkenazi ,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Business Mangement,0,0,0,Mangement,1,1,1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+122,Female,31,Mixed,Israel,Jerusalem,State,Liberal Arts,1,1,0,Consulting,Business Mangement,0,0,0,Traditional Work,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+123,Female,25,Ashkenazi,Israel,Center,State-Religious,STEM,1,0,0,Engineering and Programming,Business Mangement and Law,1,0,0,Finance,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+124,Female,28,Ashkenazi,United States,Abroad,Private,STEM,1,1,0,Consulting,None,0,0,0,Catering,3,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+125,Female,27,Mixed,Israel,Center,State,Liberal Arts,1,0,0,Law,Business Mangement and STEM,1,1,0,Engineering and Programming,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+126,Female,26,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Therapeutic,STEM,1,1,0,Engineering and Programming,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+127,Female,27,Ashkenazi,Israel ,Haifa,State,Medicine,1,1,1,Medicine,STEM,1,0,0,Engineering and Programming,5,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+128,Female,25,Mixed,Israel,Center,State,Other,1,0,0,Design,STEM,1,0,0,Engineering and Programming,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+129,Male,27,Mixed,Israel,Center,State,Other,1,0,0,Law,Law,1,1,1,Academy,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+130,Female,23,Mizrachi,Israel,Center,State,Other,0,0,0,Design,None,0,0,0,General Business,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+131,Male,29,Mixed,Israel,Jerusalem,State-Religious,Medicine,1,1,1,Medicine,Medicine,1,1,1,Medicine,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+132,Male,28,Ashkenazi,United States,Center,State,Business Mangement,1,0,0,Mangement,STEM,1,1,0,Engineering and Programming,2,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+133,Female,28,Mixed,Israel,Center,State,Other,0,0,0,Sales and Marketing,None,0,0,0,Agriculture,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+134,Female,26,Other,Ukraine,Abroad,State,Other,1,0,0,Catering,STEM,1,0,0,Engineering and Programming,4,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+135,Male,23,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Design,STEM,1,1,1,Academy,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+136,Female,24,Ashkenazi,Israel,Center,State-Religious,Other,1,0,0,Other,Medicine,1,1,1,Medicine,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+137,Female,26,Ashkenazi,Israel,South,Private,Liberal Arts,1,0,0,Therapeutic,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+138,Female,27,Ashkenazi,Israel,Center,Private,Medicine,1,1,1,Medicine,Liberal Arts,1,1,0,National Defense Services,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+139,Female,26,Mixed,Israel,Jerusalem,Private,Other,1,0,0,Information Systems,None,0,0,0,Physical Work,1,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+140,Male,27,Mixed,Israel,Center,State,Business Mangement,1,0,0,Consulting,STEM,1,0,0,Engineering and Programming,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+141,Female,25,Mixed,Israel,Haifa,State,Design,1,0,0,Sales and Marketing,STEM,0,0,0,Engineering and Programming,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+142,Female,23,Ashkenazi,Israel ,Jerusalem,State-Religious,Medicine,1,1,1,Medicine,Law,1,0,0,Law,2,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+143,Male,27,Mixed,Israel,Center,State,Other,0,0,0,Engineering and Programming,Liberal Arts,1,0,0,Sales and Marketing,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+144,Female,25,Mixed,Israel,Center,State,Design,1,0,0,Art/Music,Law,1,0,0,Law,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+145,Female,25,Ashkenazi,United States,Unknown,State,Other,1,0,0,Other,Unknown,1,1,0,Administration,3,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+146,Female,27,Ashkenazi,England,Center,State-Religious,Other,1,1,0,Academy,Unknown,1,1,1,Consulting,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+147,Male,29,Ashkenazi,England,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,Liberal Arts,1,1,1,Academy,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+148,Female,32,Mizrachi,France,Center,State,Other,1,1,0,Therapeutic,STEM,0,0,0,Engineering and Programming,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+149,Male,33,Ashkenazi,Israel,Tel Aviv,State,Other,1,0,0,Education,STEM,1,1,0,Academy,3,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+150,Male,28,Mixed,Israel,Tel Aviv,State,Liberal Arts,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+151,Female,28,Ashkenazi,Israel,West Bank,State-Religious,Other,1,0,0,Therapeutic,Business Mangement,1,0,0,Mangement,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+152,Female,67,Ashkenazi,Israel,Center,State,Liberal Arts,1,0,0,Therapeutic,None,0,0,0,Agriculture,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+153,Female,27,Other,Israel,Center,State,Other,1,0,0,Engineering and Programming,STEM,1,0,0,National Defense Services,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+154,Male,26,Soviet Union,Israel,South,State,Other,1,0,0,Engineering and Programming,Business Mangement,1,0,0,Finance,2,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+155,Female,31,Ashkenazi,Israel,Tel Aviv,State,Liberal Arts,1,1,0,Other,Law,1,0,0,Law,1,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+156,Male,28,Mizrachi,Israel ,Jerusalem,State-Religious,Other,0,0,0,Engineering and Programming,STEM,0,0,0,Communication/Language,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+157,Male,38,Ashkenazi,Israel,Jerusalem,State-Religious,Business Mangement,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,4,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+158,Female,27,Mizrachi,Israel,Center,State,Design,1,0,0,Design,None,0,0,0,Traditional Work,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+159,Male,31,Mixed,Israel,Jerusalem,Other,STEM and Design,1,0,0,Engineering and Programming,STEM,1,1,1,Academy,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+160,Female,50,Ashkenazi,Israel,Jerusalem,State,Medicine,1,1,1,Medicine,None,0,0,0,Engineering and Programming,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+161,Male,54,Ashkenazi,Israel,Center,State-Religious,STEM,1,0,0,Engineering and Programming,None,0,0,0,Mangement,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+162,Female,29,Ashkenazi,Israel,Unknown,State,Other,1,0,0,Art/Music,None,0,0,0,Agriculture,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+163,Female,27,Mixed,Israel,North,State-Religious,Other,1,0,0,Academy,STEM,0,0,0,Traditional Work,5,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+164,Female,27,Ashkenazi,Israel,Center,State,Other,1,0,0,Engineering and Programming,Liberal Arts,1,0,0,National Defense Services,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+165,Female,65,Ashkenazi,El Salvador,Unknown,State,Other,1,1,0,Therapeutic,None,0,0,0,Administration,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+166,Female,27,Mixed,Israel,Center,State,Other,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Finance,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+167,Female,26,Mizrachi,Israel,Jerusalem,State-Religious,Other,1,1,0,Therapeutic,None,0,0,0,Religion,1,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+168,Male,28,Ashkenazi,United States,Center,State,Other,0,0,0,Consulting,STEM,1,1,1,Academy,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+169,Male,27,Mizrachi,Israel,Center,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Information Systems,4,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+170,Male,23,Ashkenazi,Israel,North,State,Other,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+171,Male,61,Ashkenazi,Israel,Center,State,STEM,1,1,0,Engineering and Programming,None,0,0,0,General Business,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+172,Female,26,Mizrachi,Israel,Jerusalem,State-Religious,Other,1,0,0,Therapeutic,STEM,1,1,0,Engineering and Programming,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+173,Female,26,Ashkenazi,Israel,Jerusalem,Private,STEM and Liberal Arts,1,0,0,Other,STEM,1,0,0,Mangement,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+174,Female,27,Mixed,Israel,Unknown,State,STEM,0,0,0,Mangement,Liberal Arts,0,0,0,Education,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+175,Female,27,Soviet Union,Israel,Haifa,State,STEM and Design,1,0,0,Design,STEM,1,0,0,Information Systems,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+176,Female,24,Soviet Union,Israel,Unknown,State,Other,1,0,0,Education,Business Mangement,1,1,0,Mangement,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+177,Female,28,Ashkenazi,Israel,Center,State-Religious,STEM,1,0,0,Mangement,None,0,0,0,Sales and Marketing,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+178,Female,29,Mizrachi,Israel,Tel Aviv,State-Religious,STEM and Design,1,0,0,Engineering and Programming,None,0,0,0,General Business,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+179,Female,63,Mizrachi,Israel,Center,State,Other,1,0,0,Therapeutic,None,0,0,0,Mangement,2,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+180,Male,63,Ashkenazi ,United States,Abroad,Private,STEM,1,0,0,Engineering and Programming,Unknown,1,0,0,General Business,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+181,Male,34,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,1,0,Education,STEM,1,0,0,Engineering and Programming,3,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+182,Female,27,Soviet Union,Russia,South,State,Other,1,1,0,Medicine,STEM,0,1,0,Engineering and Programming,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+183,Male,25,Ashkenazi ,Israel ,West Bank,State-Religious,STEM,1,0,0,Engineering and Programming,Law,1,1,0,Law,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+184,Female,27,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,1,0,Engineering and Programming,Business Mangement,1,1,0,Finance,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+185,Male,24,Ashkenazi,Israel,Jerusalem,State-Religious,Other,1,0,0,Art/Music,Law,1,0,0,Religion,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+186,Male,27,Ashkenazi,Israel,Center,State,Other,1,0,0,Engineering and Programming,Business Mangement,1,1,0,Finance,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+187,Female,28,Mizrachi,Israel,Center,State,Other,0,0,0,Design,None,0,0,0,Other,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+188,Female,27,Ashkenazi,Israel,Center,State,Other,1,1,0,Other,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+189,Male,61,Ashkenazi,Israel,Tel Aviv,State,Other,1,1,0,Human Resources,None,0,0,0,Transportation,1,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+190,Male,28,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,Design,0,0,0,Mangement,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+191,Female,48,Mixed,Israel ,Center,State,Other,1,1,0,Sales and Marketing,None,0,0,0,Sales and Marketing,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+192,Male,28,Mixed,Israel,Center,State,Other,1,0,0,Finance,Business Mangement,1,0,0,General Business,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+193,Male,28,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+194,Male,49,Ashkenazi,Israel,Center,State,STEM,1,1,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+195,Male,27,Other,Israel,Center,Orthodox,Other,1,0,0,Education,None,0,0,0,General Business,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+196,Male,49,Mizrachi,Israel,Center,State,Design,1,0,0,Design,None,0,0,0,Traditional Work,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+197,Male,66,Ashkenazi,Israel,Tel Aviv,State,Other,1,0,0,Other,None,0,0,0,Transportation,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+198,Female,45,Ashkenazi,Israel,Unknown,State,STEM,1,1,0,Academy,STEM,1,1,0,Therapeutic,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+199,Female,55,Ashkenazi,Israel,Unknown,State,Liberal Arts,1,0,0,General Business,STEM,1,1,1,Academy,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+200,Female,48,Ashkenazi,Israel,Center,State,Other,1,0,0,Agriculture,STEM,1,0,0,Agriculture,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+201,Female,44,Mizrachi,Israel,Jerusalem,State-Religious,STEM,1,0,0,Mangement,None,0,0,0,Traditional Work,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+202,Female,45,Ashkenazi,Israel,South,State,Other,1,0,0,Administration,None,0,0,0,Traditional Work,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+203,Male,37,Mixed,Israel,Center,State,Other,1,0,0,Engineering and Programming,None,0,0,0,National Defense Services,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+204,Male,55,Ashkenazi,Israel,Center,State,Other,0,0,0,Sales and Marketing,None,0,0,0,General Business,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+205,Female,44,Ashkenazi,Israel,Center,State,STEM,1,0,0,Mangement,STEM,1,0,0,Other,4,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+206,Female,49,Mizrachi,Israel,Center,State,Other,1,0,0,Design,None,0,0,0,General Business,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+207,Male,28,Ashkenazi,Israel,Center,State,Other,1,0,0,Engineering and Programming,Medicine,1,1,0,Medicine,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+208,Female,44,Other,Israel,Center,State,Other,1,1,0,Academy,None,0,0,0,Agriculture,3,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+209,Male,50,Mixed,Israel,Center,State,Other,0,0,0,Engineering and Programming,None,0,0,0,Agriculture,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+210,Female,51,Mixed,Israel ,Center,State,Liberal Arts,1,1,0,Consulting,STEM,0,0,0,Engineering and Programming,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+211,Female,27,Mixed,Israel,Center,State,Other,1,0,0,Engineering and Programming,None,0,0,0,General Business,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+212,Female,41,Ashkenazi,Israel ,Center,State,Liberal Arts,1,1,0,Therapeutic,STEM,1,0,0,Engineering and Programming,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+213,Male,43,Ashkenazi,Israel,Unknown,State-Religious,STEM,1,0,0,Engineering and Programming,None,0,0,0,Finance,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+214,Female,46,Mizrachi,Israel ,Center,State,Other,1,1,0,Communication/Language,None,0,0,0,General Business,4,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+215,Male,27,Ashkenazi,Israel,Unknown,State,Other,1,1,0,Academy,Liberal Arts,1,1,0,National Defense Services,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+216,Female,71,Ashkenazi,Israel,Center,State,Other,1,0,0,Mangement,None,0,0,0,Agriculture,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+217,Male,28,Ashkenazi,Israel,Center,State,Business Mangement,1,0,0,Mangement,None,0,0,0,Other,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+218,Female,27,Ashkenazi,Israel,North,State,Medicine,1,1,1,Medicine,STEM,1,1,0,Engineering and Programming,4,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+219,Female,28,Ashkenazi,Israel,North,State,STEM,1,0,0,Consulting,None,0,0,0,Education,4,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+220,Female,45,Ashkenazi,Israel,Center,State,Design,1,0,0,Sales and Marketing,STEM,1,1,0,Engineering and Programming,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+221,Male,28,Mizrachi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+222,Female,36,Ashkenazi,Israel,Center,State,Other,1,0,0,Law,STEM,1,1,0,Mangement,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+223,Female,31,Ashkenazi,Israel,Unknown,State,Other,1,1,0,Therapeutic,None,0,0,0,Art/Music,5,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+224,Female,60,Ashkenazi,Israel,Center,State,Other,1,1,0,Education,STEM,0,0,0,Engineering and Programming,3,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+225,Female,43,Mixed,Israel ,Center,State,STEM,1,0,0,Education,STEM,0,0,0,Engineering and Programming,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+226,Female,45,Mixed,Israel,Jerusalem,State,Other,1,0,0,Administration,Business Mangement,1,0,0,Finance,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+227,Male,30,Mixed,Israel,Unknown,State-Religious,STEM,1,0,0,Engineering and Programming,Business Mangement and STEM,1,1,0,Mangement,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+228,Female,65,Mixed,Israel,Center,State,Other,1,1,1,Academy,None,0,0,0,Transportation,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+229,Female,27,Mixed,Israel,South,State,STEM,1,0,0,Mangement,Medicine,1,1,1,Medicine,4,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+230,Female,51,Ashkenazi,Israel,Center,State,Other,1,0,0,Design,STEM,1,0,0,Engineering and Programming,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+231,Female,58,Ashkenazi,Israel,Center,State,STEM,1,0,0,Design,Unknown,0,0,0,Sales and Marketing,5,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+232,Female,20,Ashkenazi,Israel,Unknown,State,Other,0,0,0,National Defense Services,Liberal Arts,1,0,0,National Defense Services,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+233,Female,58,Ashkenazi,Israel,Center,State,Other,0,0,0,Art/Music,None,0,0,0,Mangement,5,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+234,Female,26,Mizrachi,Israel,Jerusalem,State-Religious,Other,1,0,0,Engineering and Programming,STEM,1,1,0,Agriculture,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+235,Female,45,Ashkenazi,Israel,Unknown,State,Other,1,1,0,Finance,None,0,0,0,Sales and Marketing,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+236,Female,52,Ashkenazi,Israel,Center,State,Other,0,0,0,Education,None,0,0,0,Other,5,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+237,Male,48,Ashkenazi,Israel,Center,State,STEM,1,0,0,Engineering and Programming,STEM,1,0,0,Engineering and Programming,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+238,Female,40,Ashkenazi,Israel ,Unknown,State,Other,1,1,0,Therapeutic,None,0,0,0,Agriculture,4,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+239,Female,61,Ashkenazi,Israel,Unknown,State,Business Mangement,1,1,0,Academy,None,0,0,0,Other,3,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+240,Female,48,Mixed,Israel,Center,State,Business Mangement,1,0,0,Other,None,0,0,0,Agriculture,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+241,Male,46,Mixed,Israel,Center,State,Other,1,0,0,Finance,None,0,0,0,Education,4,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+242,Female,45,Soviet Union,Uzbekistan,Jerusalem,State,STEM,1,0,0,Engineering and Programming,STEM,1,1,0,Engineering and Programming,3,1,1,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+243,Male,45,Ashkenazi,Israel,Center,State,Other,0,0,0,Mangement,None,0,0,0,Traditional Work,5,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+244,Female,46,Ashkenazi,Israel,Center,State,Liberal Arts,1,0,0,Sales and Marketing,Medicine,1,1,1,Medicine,5,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+245,Female,50,Mixed,Israel,Center,State,Liberal Arts,1,0,0,Mangement,None,0,0,0,Mangement,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+246,Female,39,Ashkenazi,Israel ,Center,State,Liberal Arts,1,0,0,Transportation,None,0,0,0,Transportation,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+247,Female,49,Mixed,Israel,North,State,Other,1,1,0,Information Systems,STEM,1,0,0,Agriculture,4,1,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+248,Male,28,Ashkenazi,Israel,Jerusalem,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Mangement,4,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+249,Male,27,Mixed,Israel ,Center,State,Other,1,0,0,Engineering and Programming,None,0,0,0,Physical Work,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+250,Female,27,Mizrachi,Israel,Center,State-Religious,Other,1,0,0,Engineering and Programming,None,0,0,0,Administration,4,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+251,Female,28,Ashkenazi,Israel,Center,State,Business Mangement,1,0,0,Sales and Marketing,Business Mangement,1,0,0,Mangement,5,1,1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+252,Male,58,Ashkenazi,Israel,Center,State,Business Mangement,1,0,0,Information Systems,Business Mangement,1,0,0,Finance,2,1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
