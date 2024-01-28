@@ -52,6 +52,15 @@ export default () => {
 
     return new CircleObject(x, y, circleRadius, circleColor, circleSpeed);
   }
+
+  /**
+   * draw the actual circles, and make sure they won't overlap
+   * @param p5
+   * @param circlesAmount - amount of small data circles TODO maybe this should affect the size of the the big circle?
+   * @param curColor - the color of the small data circles in this big circle
+   * @param shapeAmount - amount of shapes (circles) that will be in this category
+   * @param shapeNum - the num of shape (if we have 5 circles in category, this can be 0, 1, 2, 3, 4)
+   */
   function drawCirclesOnShape(p5, circlesAmount, curColor, shapeAmount, shapeNum){
     let overlapping, d;
     let allCircles = [];
@@ -132,9 +141,13 @@ export default () => {
       first = false;
     }
 
+    // TODO how do we read states of the filter? what if we have few filters applied?
+
+    // TODO rename the small circles to dots in functions and variables- to be more clear
+
     // TODO add a nice swipe between prev arrangement to current
 
-    // TODO Need to make sure that calculating only once for each filter chnage
+    // TODO Need to make sure that calculating only once for each filter change
     // show && arrangeCircles(p5);
 
   };
