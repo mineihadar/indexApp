@@ -3,46 +3,73 @@ import Sketch from "react-p5";
 import info from "./info.json";
 
 // Constance
-let regularCircleRadius = 3;
-let regularCircleSpeed = 1;
+let regularDotRadius = 3;
+let regularDotSpeed = 0.05;
 
-// initialize circles
+// bg color
+let bgColor;
+let dotInitializeColor;
+
+// initialize dots
 let first = true;
+let second = false; // control with outer filter
 
-// our circle object
-class CircleObject {
-  constructor(x, y, r, color, s) {
+// array of dots
+let allDots = [];
+
+class DotCoords {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
+  }
+}
+// our circle object
+class DotObject {
+
+  constructor(x, y, r, color, s) {
+    this.cur_coords = new DotCoords(x, y);
+    this.next_coords = new DotCoords(x, y);
+    this.cur_index = 0;
+    this.onTheWay = false; // TODO do we need this?
     this.r = r;
     this.color = color;
     this.speed = s;
+  }
+
+  updateCurCoords(newCoords){
+    this.next_coords = newCoords;
+  }
+
+  drawThisDot(p5){
+    p5.ellipse(this.cur_coords.x, this.cur_coords.y, this.r * 2, this.r * 2);
   }
 }
 
 export default () => {
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1500, 800).parent(canvasParentRef);
-    p5.background(255, 124, 134);
+    bgColor = p5.color(235, 145, 52);
+    dotInitializeColor = p5.color(255);
+
+    p5.background(bgColor);
+
   };
 
   /**
-   * Create a circle on a random coordinate inside the main shape (for now- it's a circle)
+   * choose the coordinates in circle, according the index of the dot
+   * (in witch circle it need to be) and the amount of circles
    * @param p5
-   * @param circleRadius- the radius of the small circle, will be needed for general circle vs. your circle
-   * @param circleSpeed - the speed of the small circle, will be needed for general circle vs. your circle
-   * @param circleColor - the color of the small circle
-   * @param shapeAmount - amount of circles the contains small circles
-   * @param shapeNum - the current num of shape
-   * @returns {CircleObject}
+   * @param shapeAmount
+   * @param shapeIndex - the index of the circle that the dot need to be in
+   * @returns {DotCoords}
    */
-  function createCircleOnShape(p5, circleRadius, circleSpeed, circleColor, shapeAmount, shapeNum) {
-    // choose offset on the shape (which is for now- a big circle) according to amount of shapes
-    let offsetX =  p5.width * ( (shapeNum + 1) / (shapeAmount + 1));
+  function chooseCoordsOnShape(p5, shapeAmount, shapeIndex) {
+    // choose offset on the shape (which is for now- a circle) according to amount of shapes
+    // TODO redo this- the size and offsets need to be more clear
+    let offsetX =  p5.width * ( (shapeIndex + 1) / (shapeAmount + 1));
     let offsetY =  p5.height / 2;
 
     // choose random x,y on a circle
-
     let radius = p5.random(10, (p5.width / (2 * shapeAmount)) - 50); // Adjust the radius range as needed
     let angle = p5.random(0, p5.TWO_PI);
 
@@ -50,62 +77,106 @@ export default () => {
     let x = offsetX + radius * p5.cos(angle);
     let y = offsetY + radius * p5.sin(angle);
 
-    return new CircleObject(x, y, circleRadius, circleColor, circleSpeed);
+    return new DotCoords(x, y,);
   }
 
   /**
-   * draw the actual circles, and make sure they won't overlap
+   * initialize dots with default colors and radius
+   * making sure they are not overlapping
    * @param p5
-   * @param circlesAmount - amount of small data circles TODO maybe this should affect the size of the the big circle?
-   * @param curColor - the color of the small data circles in this big circle
-   * @param shapeAmount - amount of shapes (circles) that will be in this category
-   * @param shapeNum - the num of shape (if we have 5 circles in category, this can be 0, 1, 2, 3, 4)
+   * @param dotsAmount - the amount of dots to initialize
    */
-  function drawCirclesOnShape(p5, circlesAmount, curColor, shapeAmount, shapeNum){
-    let overlapping, d;
-    let allCircles = [];
+  function initializeDots(p5, dotsAmount) {
+    let d;
+    let curDotCoords;
 
-    // create a circle for each person
-    // initialize all circles and add to an array
-    while (allCircles.length < circlesAmount) {
-      let currentCircle = createCircleOnShape(p5, regularCircleRadius, regularCircleSpeed, curColor, shapeAmount, shapeNum);
+    // create a dot for each person
+    // initialize all dots and add to an array
+    for (let i=0; i<dotsAmount ;i++){
 
-      // make sure the circles don't overlap
-      // notice that this takes lots of calculation- for every circle, checks all the prev circles
+      let overlapping = true;
+      while (overlapping === true){
+        // assuming not overlapping
+        overlapping = false;
+
+        // get coords for this dot
+        curDotCoords = chooseCoordsOnShape(p5, 1, 0);
+
+        // see if the coords won't create a dot that is overlapping with other dots
+        for (let j = 0; j < allDots.length; j++){
+          let other = allDots[j];
+          d = p5.dist(curDotCoords.x, curDotCoords.y, other.cur_coords.x, other.cur_coords.y);
+          // overlap
+          if (d < regularDotRadius + other.r) {
+            overlapping = true;
+            break;
+          }
+        }
+
+      }
+
+      // found coords that are not overlapping! create a new dot
+      allDots.push(new DotObject(curDotCoords.x, curDotCoords.y, regularDotRadius, dotInitializeColor, regularDotSpeed));
+    }
+
+    // draw all the dots
+    initDrawDots(p5);
+  }
+
+  /**
+   * draw all the dots according to cur_coords
+   * @param p5
+   */
+  function initDrawDots(p5){
+    // draw the dots
+    p5.noStroke();
+    for (let i = 0; i < allDots.length; i++) {
+      p5.fill(allDots[i].color);
+      allDots[i].drawThisDot(p5);
+    }
+  }
+
+  /**
+   * choose new coords for a dot
+   * @param p5
+   * @param dot - dot object
+   * @param shapeAmount - amount of shapes that this filter applies
+   * @param dotIndexInAllDots - the index of this dot in the allDots array
+   * (to check if not overlapping with dots that are already have new coords)
+   */
+  function updateDotNewPosition(p5, dot, shapeAmount, dotIndexInAllDots){
+    let newDotCoords;
+    let d;
+    let overlapping = true;
+
+    while (overlapping === true){
+      // assuming not overlapping
       overlapping = false;
-      for (let j = 0; j < allCircles.length; j++){
-        let other = allCircles[j];
-        d = p5.dist(currentCircle.x, currentCircle.y, other.x, other.y);
+
+      // get new coords for this dot
+      newDotCoords = chooseCoordsOnShape(p5, shapeAmount, dot.cur_index);
+
+      // see if the coords won't create a dot that is overlapping with other dots
+      for (let j = 0; j < dotIndexInAllDots; j++){
+        let other = allDots[j];
+        d = p5.dist(newDotCoords.x, newDotCoords.y, other.cur_coords.x, other.cur_coords.y);
         // overlap
-        if (d < currentCircle.r + other.r) {
+        if (d < dot.r + other.r) {
           overlapping = true;
           break;
         }
       }
-      // not overlapping
-      if (!overlapping){
-        allCircles.push(currentCircle);
-      }
     }
-    // draw the circles
-    // circle settings
-    p5.noStroke();
-    for (let i = 0; i < allCircles.length; i++) {
-      p5.fill(allCircles[i].color);
-      p5.ellipse(allCircles[i].x, allCircles[i].y, allCircles[i].r * 2, allCircles[i].r * 2);
-    }
-  }
 
-  function initialize(p5) {
-    let curColor = p5.color(255);
-    drawCirclesOnShape(p5, info.length, curColor, 1, 0);
+    // found coords that are not overlapping! change the coords
+    dot.updateCurCoords(newDotCoords);
   }
 
   function arrangeCircles(p5) {
+
     // what is the variety of answers and ho many of each
     let answers = [];
     let answersAmount = [];
-
     for (let i = 0; i < info.length; i++) {
       let curIndex = answers.indexOf(info[i].Closeness_To_Dad);
       if (curIndex === -1){
@@ -116,39 +187,59 @@ export default () => {
       answersAmount[curIndex] += 1;
     }
 
-    // for loop on the amount of answers, and send the num of answers
-    for (let i=0; i<answers.length; i++){
-      let curColor = p5.color(255); // TODO how to choose different color for each
-      drawCirclesOnShape(p5, answersAmount[i], curColor, answers.length, i);
+    // update all the coords
+    for (let i=0; i<allDots.length; i++) {
+      // update the index for this dot
+      allDots[i].cur_index = answers.indexOf(info[i].Closeness_To_Dad);
+
+      // updateDotCoords
+      updateDotNewPosition(p5, allDots[i], answers.length, i);
+    }
+  }
+
+  function drawDots(p5){
+    // TODO make this calculating stop when all dots are in place
+    for (let i=0; i<allDots.length; i++){
+      // check if this dot need to be updated
+
+      let dot = allDots[i];
+      // Move the point towards point B
+      let deltaX = dot.next_coords.x - dot.cur_coords.x;
+      let deltaY = dot.next_coords.y - dot.cur_coords.y;
+      dot.cur_coords.x += deltaX * dot.speed;
+      dot.cur_coords.y += deltaY * dot.speed;
+
+      dot.drawThisDot(p5);
     }
   }
 
 
-  function generateRect(p5) {
-    for (var i = 0; i < info.length; i++) {
-      let height = info[i].Closeness_To_Dad * 100;
-      p5.fill(123, 243, 123);
-      p5.noStroke();
-      p5.rect(i * 25 + 30, 100, 10, height);
-    }
-  }
 
   const draw = (p5, show = true) => {
     // initialize circles
     if (first) {
-      //show && initialize(p5);
-      show && arrangeCircles(p5);
+      show && initializeDots(p5, info.length);
       first = false;
+      second = true;
     }
 
-    // TODO how do we read states of the filter? what if we have few filters applied?
+    // update the new coords
+    if (second){
+      show && arrangeCircles(p5);
+      second = false;
+    }
 
-    // TODO rename the small circles to dots in functions and variables- to be more clear
+    //draw
+    p5.background(bgColor);
+    drawDots(p5);
+
+
+
+    // TODO how do we read states of the filter? what if we have few filters applied?
 
     // TODO add a nice swipe between prev arrangement to current
 
     // TODO Need to make sure that calculating only once for each filter change
-    // show && arrangeCircles(p5);
 
   };
 
