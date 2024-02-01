@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sketch from "react-p5";
 import info from "./info.json";
 
@@ -12,7 +12,6 @@ let dotInitializeColor;
 
 // initialize dots
 let first = true;
-let second = false; // control with outer filter
 
 // array of dots
 let allDots = [];
@@ -25,7 +24,6 @@ class DotCoords {
 }
 // our circle object
 class DotObject {
-
   constructor(x, y, r, color, s) {
     this.cur_coords = new DotCoords(x, y);
     this.next_coords = new DotCoords(x, y);
@@ -36,23 +34,25 @@ class DotObject {
     this.speed = s;
   }
 
-  updateCurCoords(newCoords){
+  updateCurCoords(newCoords) {
     this.next_coords = newCoords;
   }
 
-  drawThisDot(p5){
+  drawThisDot(p5) {
     p5.ellipse(this.cur_coords.x, this.cur_coords.y, this.r * 2, this.r * 2);
   }
 }
 
 export default () => {
+  // State controlled by button press
+  const [isOrderDots, setIsOrderDots] = useState(false);
+
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1500, 800).parent(canvasParentRef);
     bgColor = p5.color(235, 145, 52);
     dotInitializeColor = p5.color(255);
 
     p5.background(bgColor);
-
   };
 
   /**
@@ -66,18 +66,18 @@ export default () => {
   function chooseCoordsOnShape(p5, shapeAmount, shapeIndex) {
     // choose offset on the shape (which is for now- a circle) according to amount of shapes
     // TODO redo this- the size and offsets need to be more clear
-    let offsetX =  p5.width * ( (shapeIndex + 1) / (shapeAmount + 1));
-    let offsetY =  p5.height / 2;
+    let offsetX = p5.width * ((shapeIndex + 1) / (shapeAmount + 1));
+    let offsetY = p5.height / 2;
 
     // choose random x,y on a circle
-    let radius = p5.random(10, (p5.width / (2 * shapeAmount)) - 50); // Adjust the radius range as needed
+    let radius = p5.random(10, p5.width / (2 * shapeAmount) - 50); // Adjust the radius range as needed
     let angle = p5.random(0, p5.TWO_PI);
 
     // Convert polar coordinates to Cartesian coordinates
     let x = offsetX + radius * p5.cos(angle);
     let y = offsetY + radius * p5.sin(angle);
 
-    return new DotCoords(x, y,);
+    return new DotCoords(x, y);
   }
 
   /**
@@ -92,10 +92,9 @@ export default () => {
 
     // create a dot for each person
     // initialize all dots and add to an array
-    for (let i=0; i<dotsAmount ;i++){
-
+    for (let i = 0; i < dotsAmount; i++) {
       let overlapping = true;
-      while (overlapping === true){
+      while (overlapping === true) {
         // assuming not overlapping
         overlapping = false;
 
@@ -103,20 +102,32 @@ export default () => {
         curDotCoords = chooseCoordsOnShape(p5, 1, 0);
 
         // see if the coords won't create a dot that is overlapping with other dots
-        for (let j = 0; j < allDots.length; j++){
+        for (let j = 0; j < allDots.length; j++) {
           let other = allDots[j];
-          d = p5.dist(curDotCoords.x, curDotCoords.y, other.cur_coords.x, other.cur_coords.y);
+          d = p5.dist(
+            curDotCoords.x,
+            curDotCoords.y,
+            other.cur_coords.x,
+            other.cur_coords.y
+          );
           // overlap
           if (d < regularDotRadius + other.r) {
             overlapping = true;
             break;
           }
         }
-
       }
 
       // found coords that are not overlapping! create a new dot
-      allDots.push(new DotObject(curDotCoords.x, curDotCoords.y, regularDotRadius, dotInitializeColor, regularDotSpeed));
+      allDots.push(
+        new DotObject(
+          curDotCoords.x,
+          curDotCoords.y,
+          regularDotRadius,
+          dotInitializeColor,
+          regularDotSpeed
+        )
+      );
     }
 
     // draw all the dots
@@ -127,7 +138,7 @@ export default () => {
    * draw all the dots according to cur_coords
    * @param p5
    */
-  function initDrawDots(p5){
+  function initDrawDots(p5) {
     // draw the dots
     p5.noStroke();
     for (let i = 0; i < allDots.length; i++) {
@@ -144,12 +155,12 @@ export default () => {
    * @param dotIndexInAllDots - the index of this dot in the allDots array
    * (to check if not overlapping with dots that are already have new coords)
    */
-  function updateDotNewPosition(p5, dot, shapeAmount, dotIndexInAllDots){
+  function updateDotNewPosition(p5, dot, shapeAmount, dotIndexInAllDots) {
     let newDotCoords;
     let d;
     let overlapping = true;
 
-    while (overlapping === true){
+    while (overlapping === true) {
       // assuming not overlapping
       overlapping = false;
 
@@ -157,9 +168,14 @@ export default () => {
       newDotCoords = chooseCoordsOnShape(p5, shapeAmount, dot.cur_index);
 
       // see if the coords won't create a dot that is overlapping with other dots
-      for (let j = 0; j < dotIndexInAllDots; j++){
+      for (let j = 0; j < dotIndexInAllDots; j++) {
         let other = allDots[j];
-        d = p5.dist(newDotCoords.x, newDotCoords.y, other.cur_coords.x, other.cur_coords.y);
+        d = p5.dist(
+          newDotCoords.x,
+          newDotCoords.y,
+          other.cur_coords.x,
+          other.cur_coords.y
+        );
         // overlap
         if (d < dot.r + other.r) {
           overlapping = true;
@@ -173,13 +189,12 @@ export default () => {
   }
 
   function arrangeCircles(p5) {
-
     // what is the variety of answers and ho many of each
     let answers = [];
     let answersAmount = [];
     for (let i = 0; i < info.length; i++) {
       let curIndex = answers.indexOf(info[i].Closeness_To_Dad);
-      if (curIndex === -1){
+      if (curIndex === -1) {
         answers.push(info[i].Closeness_To_Dad);
         answersAmount.push(1);
         continue;
@@ -188,7 +203,7 @@ export default () => {
     }
 
     // update all the coords
-    for (let i=0; i<allDots.length; i++) {
+    for (let i = 0; i < allDots.length; i++) {
       // update the index for this dot
       allDots[i].cur_index = answers.indexOf(info[i].Closeness_To_Dad);
 
@@ -197,9 +212,9 @@ export default () => {
     }
   }
 
-  function drawDots(p5){
+  function drawDots(p5) {
     // TODO make this calculating stop when all dots are in place
-    for (let i=0; i<allDots.length; i++){
+    for (let i = 0; i < allDots.length; i++) {
       // check if this dot need to be updated
 
       let dot = allDots[i];
@@ -213,35 +228,34 @@ export default () => {
     }
   }
 
-
-
   const draw = (p5, show = true) => {
     // initialize circles
     if (first) {
       show && initializeDots(p5, info.length);
       first = false;
-      second = true;
     }
 
     // update the new coords
-    if (second){
+    if (isOrderDots) {
       show && arrangeCircles(p5);
-      second = false;
+      setIsOrderDots(false);
     }
 
     //draw
     p5.background(bgColor);
     drawDots(p5);
 
-
-
     // TODO how do we read states of the filter? what if we have few filters applied?
 
     // TODO add a nice swipe between prev arrangement to current
 
     // TODO Need to make sure that calculating only once for each filter change
-
   };
 
-  return <Sketch setup={setup} draw={draw} />;
+  return (
+    <div>
+      <button onClick={() => setIsOrderDots(true)}>Rearrange</button>
+      <Sketch setup={setup} draw={draw} />
+    </div>
+  );
 };
