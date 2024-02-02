@@ -65,6 +65,31 @@ export default () => {
     optionsColors.push(p5.color(156, 113, 136));
     optionsColors.push(p5.color(82, 129, 184));
     optionsColors.push(p5.color(197, 149, 96));
+    //TODO need different colors
+
+    optionsColors.push(p5.color(228, 171, 135));
+    optionsColors.push(p5.color(176, 186, 135));
+    optionsColors.push(p5.color(156, 113, 136));
+    optionsColors.push(p5.color(82, 129, 184));
+    optionsColors.push(p5.color(197, 149, 96));
+
+    optionsColors.push(p5.color(228, 171, 135));
+    optionsColors.push(p5.color(176, 186, 135));
+    optionsColors.push(p5.color(156, 113, 136));
+    optionsColors.push(p5.color(82, 129, 184));
+    optionsColors.push(p5.color(197, 149, 96));
+
+    optionsColors.push(p5.color(228, 171, 135));
+    optionsColors.push(p5.color(176, 186, 135));
+    optionsColors.push(p5.color(156, 113, 136));
+    optionsColors.push(p5.color(82, 129, 184));
+    optionsColors.push(p5.color(197, 149, 96));
+
+    optionsColors.push(p5.color(228, 171, 135));
+    optionsColors.push(p5.color(176, 186, 135));
+    optionsColors.push(p5.color(156, 113, 136));
+    optionsColors.push(p5.color(82, 129, 184));
+    optionsColors.push(p5.color(197, 149, 96));
     p5.background(bgColor);
 
   };
@@ -245,7 +270,7 @@ export default () => {
     }
 
     if (isOrderDots) {
-      show && filterDots(p5, "Closeness_To_Dad");
+      show && filterDots(p5, "Work_Type_Child");
       setIsOrderDots(false);
     }
 
