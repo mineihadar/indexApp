@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Sketch from "react-p5";
 import info from "./info.json";
+import { groupFilters } from "./helpers/groupFilters";
 // import myInfo from "./myInfo.json";
 
+//Filters
+let filters = ["Closeness_To_Mom", "Closeness_To_Dad"];
 // Constance
 let regularDotRadius = 3;
 let regularDotSpeed = 0.05;
@@ -30,7 +33,6 @@ class DotCoords {
 }
 // our circle object
 class DotObject {
-
   constructor(x, y, r, color, s) {
     this.cur_coords = new DotCoords(x, y);
     this.next_coords = new DotCoords(x, y);
@@ -40,18 +42,17 @@ class DotObject {
     this.speed = s;
   }
 
-  updateCurCoords(newCoords){
+  updateCurCoords(newCoords) {
     this.next_coords = newCoords;
   }
 
-  drawThisDot(p5){
+  drawThisDot(p5) {
     p5.fill(this.color);
     p5.ellipse(this.cur_coords.x, this.cur_coords.y, this.r * 2, this.r * 2);
   }
 }
 
 export default () => {
-
   // State controlled by button press
   const [isOrderDots, setIsOrderDots] = useState(false);
 
@@ -91,7 +92,6 @@ export default () => {
     optionsColors.push(p5.color(82, 129, 184));
     optionsColors.push(p5.color(197, 149, 96));
     p5.background(bgColor);
-
   };
 
   /**
@@ -104,19 +104,19 @@ export default () => {
    */
   function chooseCoordsOnShape(p5, shapeAmount, shapeIndex) {
     // choose offset on the shape (which is for now- a circle) according to amount of shapes
-    let offsetX =  p5.width * ( (shapeIndex + 1) / (shapeAmount + 1));
-    let offsetY =  p5.height / 2;
+    let offsetX = p5.width * ((shapeIndex + 1) / (shapeAmount + 1));
+    let offsetY = p5.height / 2;
 
     // choose random x,y on a circle
     // TODO maybe the size can be better
-    let radius = p5.random(10, (p5.width / (3 * shapeAmount))  ); // Adjust the radius range as needed
+    let radius = p5.random(10, p5.width / (3 * shapeAmount)); // Adjust the radius range as needed
     let angle = p5.random(0, p5.TWO_PI);
 
     // Convert polar coordinates to Cartesian coordinates
     let x = offsetX + radius * p5.cos(angle);
     let y = offsetY + radius * p5.sin(angle);
 
-    return new DotCoords(x, y,);
+    return new DotCoords(x, y);
   }
 
   /**
@@ -131,15 +131,21 @@ export default () => {
 
     // create a dot for my answers
     curDotCoords = chooseCoordsOnShape(p5, 1, 0);
-    allDots.push(new DotObject(curDotCoords.x, curDotCoords.y, myDotRadius, myDotColor, myDotSpeed));
-
+    allDots.push(
+      new DotObject(
+        curDotCoords.x,
+        curDotCoords.y,
+        myDotRadius,
+        myDotColor,
+        myDotSpeed
+      )
+    );
 
     // create a dot for each person
     // initialize all dots and add to an array
-    for (let i=0; i<dotsAmount ;i++){
-
+    for (let i = 0; i < dotsAmount; i++) {
       let overlapping = true;
-      while (overlapping === true){
+      while (overlapping === true) {
         // assuming not overlapping
         overlapping = false;
 
@@ -147,20 +153,32 @@ export default () => {
         curDotCoords = chooseCoordsOnShape(p5, 1, 0);
 
         // see if the coords won't create a dot that is overlapping with other dots
-        for (let j = 0; j < allDots.length; j++){
+        for (let j = 0; j < allDots.length; j++) {
           let other = allDots[j];
-          d = p5.dist(curDotCoords.x, curDotCoords.y, other.cur_coords.x, other.cur_coords.y);
+          d = p5.dist(
+            curDotCoords.x,
+            curDotCoords.y,
+            other.cur_coords.x,
+            other.cur_coords.y
+          );
           // overlap
           if (d < regularDotRadius + other.r) {
             overlapping = true;
             break;
           }
         }
-
       }
 
       // found coords that are not overlapping! create a new dot
-      allDots.push(new DotObject(curDotCoords.x, curDotCoords.y, regularDotRadius, dotInitializeColor, regularDotSpeed));
+      allDots.push(
+        new DotObject(
+          curDotCoords.x,
+          curDotCoords.y,
+          regularDotRadius,
+          dotInitializeColor,
+          regularDotSpeed
+        )
+      );
     }
 
     // draw all the dots
@@ -171,7 +189,7 @@ export default () => {
    * draw all the dots according to cur_coords
    * @param p5
    */
-  function initDrawDots(p5){
+  function initDrawDots(p5) {
     // draw the dots
     p5.noStroke();
     for (let i = 0; i < allDots.length; i++) {
@@ -184,8 +202,8 @@ export default () => {
    * check if the dot needs to be moved, calculate the new location and redraw it
    * @param p5
    */
-  function drawDots(p5){
-    for (let i=0; i<allDots.length; i++){
+  function drawDots(p5) {
+    for (let i = 0; i < allDots.length; i++) {
       // check if this dot need to be updated
 
       let dot = allDots[i];
@@ -206,12 +224,12 @@ export default () => {
    * @param dotIndexInAllDots - the index of this dot in the allDots array
    * (to check if not overlapping with dots that are already have new coords)
    */
-  function updateDotNewPosition(p5, dot, shapeAmount, dotIndexInAllDots){
+  function updateDotNewPosition(p5, dot, shapeAmount, dotIndexInAllDots) {
     let newDotCoords;
     let d;
     let overlapping = true;
 
-    while (overlapping === true){
+    while (overlapping === true) {
       // assuming not overlapping
       overlapping = false;
 
@@ -219,9 +237,14 @@ export default () => {
       newDotCoords = chooseCoordsOnShape(p5, shapeAmount, dot.cur_index);
 
       // see if the coords won't create a dot that is overlapping with other dots
-      for (let j = 0; j < dotIndexInAllDots; j++){
+      for (let j = 0; j < dotIndexInAllDots; j++) {
         let other = allDots[j];
-        d = p5.dist(newDotCoords.x, newDotCoords.y, other.cur_coords.x, other.cur_coords.y);
+        d = p5.dist(
+          newDotCoords.x,
+          newDotCoords.y,
+          other.cur_coords.x,
+          other.cur_coords.y
+        );
         // overlap
         if (d < dot.r + other.r) {
           overlapping = true;
@@ -234,29 +257,24 @@ export default () => {
     dot.updateCurCoords(newDotCoords);
   }
 
-
-  function filterDots(p5, propertyToAccess) {
-    // what is the variety of answers and ho many of each
-    let answers = [];
-    for (let i = 0; i < info.length; i++) {
-      let curIndex = answers.indexOf(info[i][propertyToAccess]);
-      if (curIndex === -1){
-        answers.push(info[i][propertyToAccess]);
-      }
-    }
-
-    // update first dot
-    allDots[0].cur_index = answers.indexOf(info[0][propertyToAccess]);
+  function filterDots(p5) {
+    // what is the variety of answers
+    let groups = groupFilters(filters);
+    let numOfGroups = Object.keys(groups).length;
+    // place the first dot, using the groups object
+    let firstIndex = groups[filters.map((filter) => info[0][filter]).join("&")];
+    allDots[0].cur_index = firstIndex;
     // updateDotCoords
-    updateDotNewPosition(p5, allDots[0], answers.length, 0);
+    updateDotNewPosition(p5, allDots[0], numOfGroups, 0);
 
     // update all the coords
-    for (let i=0; i<allDots.length - 1; i++) {
+    for (let i = 0; i < allDots.length - 1; i++) {
+      let newIndex = groups[filters.map((filter) => info[i][filter]).join("&")];
       // update the index for this dot
-      allDots[i + 1].cur_index = answers.indexOf(info[i][propertyToAccess]);
+      allDots[i + 1].cur_index = newIndex;
 
       // updateDotCoords
-      updateDotNewPosition(p5, allDots[i + 1], answers.length, i);
+      updateDotNewPosition(p5, allDots[i + 1], numOfGroups, i);
       // change dot color
       allDots[i + 1].color = optionsColors[allDots[i + 1].cur_index];
     }
@@ -270,7 +288,7 @@ export default () => {
     }
 
     if (isOrderDots) {
-      show && filterDots(p5, "Work_Type_Child");
+      show && filterDots(p5);
       setIsOrderDots(false);
     }
 
@@ -285,8 +303,9 @@ export default () => {
   };
 
   return (
-      <div>
-        <button onClick={() => setIsOrderDots(true)}>Rearrange</button>
-        <Sketch setup={setup} draw={draw} />
-      </div>
-  );};
+    <div>
+      <button onClick={() => setIsOrderDots(true)}>Rearrange</button>
+      <Sketch setup={setup} draw={draw} />
+    </div>
+  );
+};
