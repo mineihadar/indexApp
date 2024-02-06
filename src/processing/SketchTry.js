@@ -1,6 +1,6 @@
 import React from "react";
 import Sketch from "react-p5";
-import info from "./info.json";
+import info from "../info.json";
 
 export default () => {
   const setup = async (p5, canvasParentRef) => {

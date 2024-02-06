@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sketch from "react-p5";
-import info from "./info.json";
-import { groupFilters } from "./helpers/groupFilters";
+import info from "../info.json";
+import { groupFilters } from "../helpers/groupFilters";
 // import myInfo from "./myInfo.json";
 
 //Filters
