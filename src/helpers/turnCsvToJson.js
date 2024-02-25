@@ -1,8 +1,8 @@
 const fs = require("fs");
 const Papa = require("papaparse");
 const csvFilePath =
-  "/Users/hadar/Desktop/Bezalel/Fifth Year/index-app/src/like_father_mother.csv";
-const jsonFilePath = "./src/info.json";
+  "/Users/hadar/Desktop/Bezalel/Fifth Year/index-app/src/new_like_father.csv";
+const jsonFilePath = "./src/new_info.json";
 
 const csvfile = fs.createReadStream(csvFilePath);
 const jsonFile = fs.createWriteStream(jsonFilePath);
