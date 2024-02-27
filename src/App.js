@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import SketchTry from "./processing/SketchTry";
-import SketchGraph from "./processing/SketchSingleGraph";
+import SketchGraph from "./processing/SketchFinalGraph";
 function App() {
   return (
     <div className='App'>
