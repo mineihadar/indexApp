@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Sketch from "react-p5";
 import info from "../info.json";
-import {groupFilters} from "../helpers/groupFilters";
-
+import { groupFilters } from "../helpers/groupFilters";
+import Dropdown from "../Dropdown";
 //Filters
 let filters = ["Closeness_To_Mom", "Closeness_To_Dad"];
 
@@ -59,6 +59,7 @@ class DotObject {
 export default () => {
   // State controlled by button press
   const [isOrderDots, setIsOrderDots] = useState(false);
+  const [chosenFilter, setChosenFilter] = useState("");
 
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1500, 800).parent(canvasParentRef);
@@ -110,13 +111,12 @@ export default () => {
    * * @returns {DotCoords}
    */
   function chooseCoordsOnShape(p5, min_radius, max_radius) {
-
     let radius = p5.random(min_radius, max_radius);
     let angle = p5.random(0, p5.TWO_PI);
 
     // Convert polar coordinates to Cartesian coordinates
-    let x = (p5.width / 2) + radius * p5.cos(angle);
-    let y = (p5.height / 2) + radius * p5.sin(angle);
+    let x = p5.width / 2 + radius * p5.cos(angle);
+    let y = p5.height / 2 + radius * p5.sin(angle);
 
     return new DotCoords(x, y);
   }
@@ -129,14 +129,14 @@ export default () => {
    * @param dotIndexInAllDots - the index of the current dot
    * @returns {boolean}
    */
-  function checkOverlapping(p5, newDotCoords, newDotR, dotIndexInAllDots){
+  function checkOverlapping(p5, newDotCoords, newDotR, dotIndexInAllDots) {
     for (let j = 0; j < dotIndexInAllDots; j++) {
       let other = allDots[j];
       let d = p5.dist(
-          newDotCoords.x,
-          newDotCoords.y,
-          other.cur_coords.x,
-          other.cur_coords.y
+        newDotCoords.x,
+        newDotCoords.y,
+        other.cur_coords.x,
+        other.cur_coords.y
       );
       // overlap
       if (d < newDotR + other.r) {
@@ -180,7 +180,12 @@ export default () => {
         curDotCoords = chooseCoordsOnShape(p5, 10, p5.height / 2);
 
         // see if the coords won't create a dot that is overlapping with other dots
-        overlapping = checkOverlapping(p5, curDotCoords, regularDotRadius, allDots.length);
+        overlapping = checkOverlapping(
+          p5,
+          curDotCoords,
+          regularDotRadius,
+          allDots.length
+        );
       }
 
       // found coords that are not overlapping! create a new dot
@@ -218,19 +223,29 @@ export default () => {
 
       // get new coords for this dot
       let min_radius, max_radius; // TODO update this according to amount of dots in current filter
-      if (dot.cur_index === IN_INDEX){
+      if (dot.cur_index === IN_INDEX) {
         min_radius = 10;
         max_radius = p5.height / 6;
       }
-      if (dot.cur_index === OUT_INDEX){
+      if (dot.cur_index === OUT_INDEX) {
         min_radius = p5.height / 4;
         max_radius = p5.height / 2;
       }
 
-      newDotCoords = chooseCoordsOnShape(p5, min_radius, max_radius, dot.cur_index);
+      newDotCoords = chooseCoordsOnShape(
+        p5,
+        min_radius,
+        max_radius,
+        dot.cur_index
+      );
 
       // see if the coords won't create a dot that is overlapping with other dots
-      overlapping = checkOverlapping(p5, newDotCoords, dot.r, dotIndexInAllDots);
+      overlapping = checkOverlapping(
+        p5,
+        newDotCoords,
+        dot.r,
+        dotIndexInAllDots
+      );
     }
 
     // found coords that are not overlapping! change the coords
@@ -245,15 +260,15 @@ export default () => {
 
     // place the first dot, using the groups object
     // TODO- change this to really get if in the filter or out of the filter
-    let first_index = groups[filters.map((filter) => info[0][filter]).join("&")];
-    if (first_index > 0){
+    let first_index =
+      groups[filters.map((filter) => info[0][filter]).join("&")];
+    if (first_index > 0) {
       first_index = 1;
     }
 
-    if (allDots[0].cur_index === first_index){
-
+    if (allDots[0].cur_index === first_index) {
     }
-    
+
     allDots[0].cur_index = first_index;
 
     // updateDotCoords
@@ -264,13 +279,14 @@ export default () => {
       // update the index for this dot
 
       // TODO- change this to really get if in the filter or out of the filter
-      let cur_index = groups[filters.map((filter) => info[i][filter]).join("&")];
-      if (cur_index > IN_INDEX){ // in filter
+      let cur_index =
+        groups[filters.map((filter) => info[i][filter]).join("&")];
+      if (cur_index > IN_INDEX) {
+        // in filter
         cur_index = OUT_INDEX;
         allDots[i + 1].color = inFilterColor; // change dot color
-      }
-      else // out of filter
-      {
+      } // out of filter
+      else {
         allDots[i + 1].color = outOfFilterColor; // change dot color
       }
       allDots[i + 1].cur_index = cur_index;
@@ -300,6 +316,7 @@ export default () => {
   return (
     <div>
       <button onClick={() => setIsOrderDots(true)}>Rearrange</button>
+      <Dropdown />
       <Sketch setup={setup} draw={draw} />
     </div>
   );
