@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import logo from "./logo.svg";
 import "./App.css";
-import SketchGraph from "./processing/SketchFinalGraph";
+import SketchGraph from "./processing/SketchFinalFinalGraph";
 import Dropdown from "./Dropdown";
 function App() {
   const filter = {
