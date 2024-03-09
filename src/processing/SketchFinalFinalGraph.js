@@ -7,13 +7,17 @@ import {groupFilters} from "../helpers/groupFilters";
 // score = 0: none
 // score = 1: similarity
 // score = 2: difference
-let dad_score = 0;
-let mom_score = 1;
-let filter = true;
-let order_val = "Work_Type_Mom";
+let prev_dad_score = 0;
+let prev_mom_score = 0;
+let order_val = "Closeness_To_Dad";
 
 // general
 let first = true;
+
+// text
+let text = false;
+let category_arr = [];
+
 
 // Constance
 let regularDotRadius = 4;
@@ -49,6 +53,7 @@ class DotObject {
     this.cur_coords = new DotCoords(x, y);
     this.next_coords = new DotCoords(x, y);
     this.cur_filter = 0;
+    this.prev_filter = -1;
     this.cur_order = 0;
     this.r = r;
     this.color = color;
@@ -66,17 +71,17 @@ class DotObject {
   }
 }
 
-export default () => {
+export default ({dad_score, mom_score}) => {
   // State controlled by button press
   const [isOrderDots, setIsOrderDots] = useState(false);
 
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1000, 800).parent(canvasParentRef);
-    bgColor = p5.color(237, 245, 242);
-    dotInitializeColor = p5.color(217,217,217);
+    bgColor = p5.color(210, 217, 193);
+    dotInitializeColor = p5.color(0,0,0);
     myDotColor = p5.color(28, 0, 86);
     inFilterColor = p5.color(70, 27, 123);
-    outOfFilterColor = p5.color(213,220,217);
+    outOfFilterColor = p5.color(0,0,0);
     hoverColor = p5.color(255, 0, 0);
 
 
@@ -206,7 +211,7 @@ export default () => {
    * @param dotsAmount - the amount of dots to initialize
    */
   function initializeDots(p5, dotsAmount) {
-    let curDotCoords;
+    let curDotCoords = new DotCoords(0, 0);
 
     // create a dot for each person
     // initialize all dots and add to an array
@@ -225,15 +230,16 @@ export default () => {
 
       let r = regularDotRadius;
       // TODO for now the special are the Work_Type_Dad=design but need to add to csv if have picture
-      if (info[i].Work_Type_Dad === "Design"){
-        r = myDotRadius;
-      }
+     if (info[i].Work_Type_Dad === "Design"){
+       r = myDotRadius;
+     }
+
       // found coords that are not overlapping! create a new dot
       allDots.push(
         new DotObject(
           curDotCoords.x,
           curDotCoords.y,
-            r,
+          r,
           dotInitializeColor,
           regularDotSpeed
         )
@@ -315,24 +321,28 @@ export default () => {
     }
 
     else {
-      console.log("curOrder: " + curOrder);
 
       // Check if n is a perfect square
       let sqrt = Math.sqrt(amountOfOrders);
       let sqrtBeforeDot = Math.ceil(sqrt);
       let row =  Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
       let part = ((curOrder + 1) / sqrtBeforeDot) % 1;
-      if (part === 0){ part = 1}
+      if (part === 0){part = 1}
       let col = (part * sqrtBeforeDot) - 1;
 
-
-      console.log("row: " + row);
-      console.log("col: " + col);
       let radius = sideLength / sqrtBeforeDot;
+      let radius_y;
+      // see if the last row is necessary, if not- change the row height
+      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot){
+        // last row is not necessary
+        radius_y = sideLength / (sqrtBeforeDot - 1);
+      }
+      else {radius_y = radius;}
+
       let leftUpX = centerX - (sideLength / 2);
       let leftUpY = centerY - (sideLength / 2);
       let x = leftUpX + (radius * col) + (radius / 2);
-      let y = leftUpY + (radius * row) + (radius / 2);
+      let y = leftUpY + (radius_y * row) + (radius / 2);
 
       return chooseCoordsInSquare(p5, x, y, radius, radius);
     }
@@ -443,7 +453,7 @@ export default () => {
       return;
     }
 
-      while (overlapping === true) {
+    while (overlapping === true) {
       // assuming not overlapping
       overlapping = false;
 
@@ -470,8 +480,7 @@ export default () => {
   function orderDots(p5) {
     allDotsInFilter = 0;
     // array of results of current category
-    let category_arr = [];
-    let category_amount = 0;
+    category_arr = [];
 
     // How many answer do I have? and update the current order for each dot
     for (let i = 0; i < allDots.length; i++) {
@@ -486,7 +495,6 @@ export default () => {
         // if this is the first time we saw this category
         if (!category_arr.includes(res)) {
           category_arr.push(res);
-          category_amount++; // first category result
         }
       }
 
@@ -502,9 +510,12 @@ export default () => {
           allDots[i].other_color = optionsColors[category_arr.indexOf(info[i][order_val])];
         }
         // update dot coords
-        updateDotNewPosition(p5, allDots[i], i, true, category_amount);
+        updateDotNewPosition(p5, allDots[i], i, true, category_arr.length);
     }
+
   }
+
+
 
   /************************/
   /**** filter functions ***/
@@ -592,7 +603,6 @@ export default () => {
       // is the dot in the filter or out of the filter
       chooseFilters(i);
 
-      // zero the order
       if (i !== allDots.length-1)
       {
         if (allDots[i].cur_filter === IN_FILTER)
@@ -605,7 +615,6 @@ export default () => {
           allDots[i].other_color = outOfFilterColor;
         }
       }
-      allDots[i].cur_order = 0;
 
       // update dot coords
       updateDotNewPosition(p5, allDots[i], i, false, [1]);
@@ -619,29 +628,30 @@ export default () => {
       first = false;
     }
 
-    // filter dots
-    // TODO this when I'll have the bool from Hadar
-    // if (isFilterDots) {
-    //   show && filterDots(p5);
-    //   setIsFilterDots(false);
-    // }
 
-    // temp filter dots
-    if (filter) {
-      show && filterDots(p5);
-      filter = false;
+    console.log("dad_score: " + dad_score);
+
+    // filter dots
+    if (prev_dad_score !== dad_score || prev_mom_score !== mom_score) {
+       show && filterDots(p5);
+       prev_mom_score = mom_score;
+       prev_dad_score = dad_score;
+       text = false;
     }
+
 
     // order dots
      if (isOrderDots) {
        show && orderDots(p5);
        setIsOrderDots(false);
+       text = true;
     }
 
     //draw
     p5.background(bgColor);
     checkIfHovering(p5);
     drawDots(p5);
+
   };
 
   return (
