@@ -13,11 +13,14 @@ function App() {
   };
   const [sameMom, setSameMom] = useState(filter.none);
   const [sameDad, setSameDad] = useState(filter.none);
-
+  const [selectedCluster, setSelectedCluster] = useState(1);
   return (
     <div className='App'>
       <div className='background-image'>
-        <RadioButton />
+        <RadioButton
+          selectedOption={selectedCluster}
+          setSelectedOption={setSelectedCluster}
+        />
         <Menu />
         <div style={{ display: "flex", marginLeft: "30px" }}>
           <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
@@ -25,7 +28,11 @@ function App() {
           <p>{sameDad}</p>
           <p>{sameMom}</p>
         </div>
-        <SketchGraph dad_score={sameDad} mom_score={sameMom} />
+        <SketchGraph
+          dad_score={sameDad}
+          mom_score={sameMom}
+          order_val={selectedCluster}
+        />
       </div>
     </div>
   );

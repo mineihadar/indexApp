@@ -3,6 +3,8 @@
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .options-container {
@@ -12,6 +14,7 @@
 
 .option-row {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .option-radio {
@@ -20,8 +23,9 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   /* Create a custom radio button */
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
+  margin: 10px;
   border-radius: 50%;
   border: 2px solid #fdfdfd;
   background-color: none; /* Color of the circle */
@@ -32,7 +36,7 @@
 
 .option-text {
   font-family: "80kb";
-  color: #05091c;
+  color: #fdfdfd;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,6 +56,14 @@
 
 .option-radio:checked {
   background-color: #fdfdfd;
+}
+
+.option-radio:checked + .option-text {
+  color: #05091c; /* Change color when radio button is checked */
+}
+
+.option-text:checked {
+  color: #05091c;
 }
 
 .selected-option {

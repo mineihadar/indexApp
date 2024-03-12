@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import "./radiobutton.css";
-const RadioButton = ({ name, id, value, checked, text }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+const RadioButton = ({
+  name,
+  id,
+  value,
+  checked,
+  text,
+  selectedOption,
+  setSelectedOption,
+}) => {
   const options = {
     1: {
       value: "None",
@@ -43,7 +49,6 @@ const RadioButton = ({ name, id, value, checked, text }) => {
   };
   return (
     <div className='eight-option-radio'>
-      <h2>Choose an option:</h2>
       <div className='options-container'>
         <div className='option-row'>
           {[1, 2, 3].map((option) => (
@@ -55,7 +60,9 @@ const RadioButton = ({ name, id, value, checked, text }) => {
                 onChange={() => handleOptionChange(option)}
                 className='option-radio'
               />
-              <span className='option-text'> {options[option]["heb"]}</span>
+              <span className='option-text' checked={selectedOption === option}>
+                {options[option]["heb"]}
+              </span>
             </label>
           ))}
         </div>
