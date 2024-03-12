@@ -16,8 +16,8 @@ let prev_mom_score = 0;
 // Work_Category_Dad
 // Closeness_To_Dad
 // Closeness_To_Mom
-let order_val = "Closeness_To_Mom";
-let prev_order_val = "Closeness_To_Mom";
+//let order_val = "Closeness_To_Mom";
+let prev_order_val = "None";
 
 // general
 let first = true;
@@ -81,14 +81,13 @@ class DotObject {
   }
 }
 
-export default ({ dad_score, mom_score }) => {
+export default ({ dad_score, mom_score, order_val }) => {
   // State controlled by button press
-  const [isOrderDots, setIsOrderDots] = useState(false);
 
   const setup = async (p5, canvasParentRef) => {
-    p5.createCanvas(1000, 800).parent(canvasParentRef);
+    p5.createCanvas(935, 759).parent(canvasParentRef);
 
-    bigCircleR = p5.height / 3;
+    bigCircleR = p5.height / 2;
     bgColor = p5.color(5, 9, 28);
     dotInitializeColor = p5.color(253, 253, 253);
     myDotColor = p5.color(125, 73, 142);
@@ -719,15 +718,11 @@ export default ({ dad_score, mom_score }) => {
     }
 
     if ( order_val !== prev_order_val) {
+      console.log(order_val);
       show && orderDots(p5);
       prev_order_val = order_val;
       text = true;
     }
-
-    /* order dots
-    if (isOrderDots) {
-       order_val = "Sex";
-    }*/
 
     //draw
     p5.background(bgColor);
@@ -739,8 +734,7 @@ export default ({ dad_score, mom_score }) => {
   };
 
   return (
-    <div>
-      <button onClick={() => setIsOrderDots(true)}>Rearrange</button>
+    <div style={{display: "flex", justifyContent:"flex-start"}}>
       <Sketch setup={setup} draw={draw} />
     </div>
   );
