@@ -14,8 +14,8 @@ function App() {
 
   return (
     <div className='App'>
-        <div className="background-image">
-          <Menu />
+      <Menu />
+      <div className="background-image">
           <div style={{ display: "flex", marginLeft: "30px" }}>
             <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
             <Dropdown parent={"Dad"} setSameVar={setSameDad} filter={filter} />
@@ -23,7 +23,7 @@ function App() {
             <p>{sameMom}</p>
           </div>
           <SketchGraph dad_score={sameDad} mom_score={sameMom} />
-        </div>
+      </div>
     </div>
   );
 }
