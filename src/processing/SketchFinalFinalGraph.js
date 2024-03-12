@@ -87,7 +87,6 @@ export default ({ dad_score, mom_score }) => {
 
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1000, 800).parent(canvasParentRef);
-    font = p5.loadFont("/Users/keren/indexApp/assets/IBMPlexMono-Medium.ttf");
 
     bigCircleR = p5.height / 3;
     bgColor = p5.color(5, 9, 28);
@@ -580,7 +579,6 @@ export default ({ dad_score, mom_score }) => {
       // let x = leftUpX + (radius * col) + (radius / 2);
       // let y = leftUpY + (radius_y * row) + (radius / 2);
       p5.textSize(textSize);
-      p5.textFont(font);
       p5.fill(textColor);
       p5.text(category_arr[curOrder], x, y);
     }
