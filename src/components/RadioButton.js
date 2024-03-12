@@ -45,7 +45,7 @@ const RadioButton = ({
   };
 
   const handleOptionChange = (option) => {
-    setSelectedOption(option);
+    setSelectedOption(options[option]["value"]);
   };
   return (
     <div className='eight-option-radio'>
@@ -56,7 +56,7 @@ const RadioButton = ({
               <input
                 type='radio'
                 value={option}
-                checked={selectedOption === option}
+                checked={selectedOption === options[option]["value"]}
                 onChange={() => handleOptionChange(option)}
                 className='option-radio'
               />
@@ -72,7 +72,7 @@ const RadioButton = ({
               <input
                 type='radio'
                 value={option}
-                checked={selectedOption === option}
+                checked={selectedOption === options[option]["value"]}
                 onChange={() => handleOptionChange(option)}
                 className='option-radio'
               />
@@ -86,7 +86,7 @@ const RadioButton = ({
               <input
                 type='radio'
                 value={option}
-                checked={selectedOption === option}
+                checked={selectedOption === options[option]["value"]}
                 onChange={() => handleOptionChange(option)}
                 className='option-radio'
               />
@@ -95,7 +95,6 @@ const RadioButton = ({
           ))}
         </div>
       </div>
-      <p className='selected-option'>Selected Option: {selectedOption}</p>
     </div>
   );
 };

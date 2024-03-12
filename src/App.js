@@ -13,7 +13,7 @@ function App() {
   };
   const [sameMom, setSameMom] = useState(filter.none);
   const [sameDad, setSameDad] = useState(filter.none);
-  const [selectedCluster, setSelectedCluster] = useState(1);
+  const [selectedCluster, setSelectedCluster] = useState("None");
   return (
     <div className='App'>
       <div className='background-image'>
