@@ -14,14 +14,16 @@ function App() {
 
   return (
     <div className='App'>
-      <Menu />
-      <div style={{ display: "flex", marginLeft: "30px" }}>
-        <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
-        <Dropdown parent={"Dad"} setSameVar={setSameDad} filter={filter} />
-        <p>{sameDad}</p>
-        <p>{sameMom}</p>
-      </div>
-      <SketchGraph dad_score={sameDad} mom_score={sameMom} />
+        <div className="background-image">
+          <Menu />
+          <div style={{ display: "flex", marginLeft: "30px" }}>
+            <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
+            <Dropdown parent={"Dad"} setSameVar={setSameDad} filter={filter} />
+            <p>{sameDad}</p>
+            <p>{sameMom}</p>
+          </div>
+          <SketchGraph dad_score={sameDad} mom_score={sameMom} />
+        </div>
     </div>
   );
 }

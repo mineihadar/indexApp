@@ -23,6 +23,13 @@
   pointer-events: none;
 }
 
+.background-image {
+  background-image: url('background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 .Menu {
   height: 79px;
   background-color: rgb(5, 9, 28);
