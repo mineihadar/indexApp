@@ -3,6 +3,8 @@ import "./App.css";
 import SketchGraph from "./processing/SketchFinalFinalGraph";
 import Dropdown from "./Dropdown";
 import Menu from "./components/Menu";
+import RadioButton from "./components/RadioButton";
+
 function App() {
   const filter = {
     none: 0,
@@ -15,6 +17,7 @@ function App() {
   return (
     <div className='App'>
       <Menu />
+      <RadioButton />
       <div style={{ display: "flex", marginLeft: "30px" }}>
         <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
         <Dropdown parent={"Dad"} setSameVar={setSameDad} filter={filter} />
