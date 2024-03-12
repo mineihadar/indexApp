@@ -7,7 +7,17 @@ import info from "../new_info.json";
 // score = 2: difference
 let prev_dad_score = 0;
 let prev_mom_score = 0;
-let order_val = "Closeness_To_Mom"; // temp
+// options:
+// None
+// Sex
+// Age
+// Work_Category_Child
+// Work_Category_Mom
+// Work_Category_Dad
+// Closeness_To_Dad
+// Closeness_To_Mom
+let order_val = "Closeness_To_Mom";
+let prev_order_val = "Closeness_To_Mom";
 
 // general
 let first = true;
@@ -657,24 +667,27 @@ export default ({dad_score, mom_score}) => {
       first = false;
     }
 
-
-    console.log("dad_score: " + dad_score);
-
     // filter dots
     if (prev_dad_score !== dad_score || prev_mom_score !== mom_score) {
        show && filterDots(p5);
        prev_mom_score = mom_score;
        prev_dad_score = dad_score;
        text = false;
+       order_val = "None";
+       prev_order_val = "None";
     }
 
+    if (prev_order_val !== order_val) {
+      show && orderDots(p5);
+      setIsOrderDots(false);
+      text = true;
+      prev_order_val = order_val;
+    }
 
     // order dots
-     if (isOrderDots) {
-       show && orderDots(p5);
-       setIsOrderDots(false);
-       text = true;
-    }
+     //if (isOrderDots) {
+     //  order_val = "Sex";
+    //}
 
     //draw
     p5.background(bgColor);
