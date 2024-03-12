@@ -1,6 +1,7 @@
 .eight-option-radio {
   font-family: Arial, sans-serif;
   padding: 20px;
+  margin-right: 270px;
   border-radius: 5px;
   display: flex;
   justify-content: flex-end;

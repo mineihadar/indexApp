@@ -21,23 +21,33 @@ function App() {
     <div className='App'>
       <div className='background-image'>
         <Menu />
-        <RadioButtonMom
-          selectedOption={sameMom}
-          setSelectedOption={setSameMom}
-        />
-        <RadioButtonDad
-          selectedOption={sameDad}
-          setSelectedOption={setSameDad}
-        />
-        <RadioButton
-          selectedOption={selectedCluster}
-          setSelectedOption={setSelectedCluster}
-        />
-        <SketchGraph
-          dad_score={sameDad}
-          mom_score={sameMom}
-          order_val={selectedCluster}
-        />
+        <div style={{ height: "120px" }}></div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+          }}>
+          <div>
+            <RadioButtonMom
+              selectedOption={sameMom}
+              setSelectedOption={setSameMom}
+            />
+            <RadioButtonDad
+              selectedOption={sameDad}
+              setSelectedOption={setSameDad}
+            />
+            <RadioButton
+              selectedOption={selectedCluster}
+              setSelectedOption={setSelectedCluster}
+            />
+          </div>
+          <SketchGraph
+            dad_score={sameDad}
+            mom_score={sameMom}
+            order_val={selectedCluster}
+          />
+        </div>
       </div>
     </div>
   );
