@@ -30,6 +30,18 @@ export default () => {
       <div className='Menu-text'>
         <p>שאלון</p>
       </div>
+      <div className='Menu-text'>
+        <p>מידע עליי</p>
+      </div>
+      <div className='Menu-text-marked'>
+        <p>מידע כללי</p>
+      </div>
+      <div className='Menu-text'>
+        <p>סיפורים אישיים</p>
+      </div>
+      <div className='Menu-text'>
+        <p>סטטיסטיקות</p>
+      </div>
     </div>
   );
 };
