@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sketch from "react-p5";
-import info from "../new_info.json";
+import info from "../newer_info.json";
 
 // score = 0: none
 // score = 1: similarity
@@ -717,7 +717,7 @@ export default ({ dad_score, mom_score, order_val }) => {
       order_val = "None";
     }
 
-    if ( order_val !== prev_order_val) {
+    if (order_val !== prev_order_val) {
       console.log(order_val);
       show && orderDots(p5);
       prev_order_val = order_val;
@@ -734,7 +734,7 @@ export default ({ dad_score, mom_score, order_val }) => {
   };
 
   return (
-    <div style={{display: "flex", justifyContent:"flex-start"}}>
+    <div style={{ display: "flex", justifyContent: "flex-start" }}>
       <Sketch setup={setup} draw={draw} />
     </div>
   );
