@@ -17,10 +17,6 @@ function App() {
   return (
     <div className='App'>
       <div className='background-image'>
-        <RadioButton
-          selectedOption={selectedCluster}
-          setSelectedOption={setSelectedCluster}
-        />
         <Menu />
         <div style={{ display: "flex", marginLeft: "30px" }}>
           <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
@@ -28,6 +24,10 @@ function App() {
           <p>{sameDad}</p>
           <p>{sameMom}</p>
         </div>
+        <RadioButton
+          selectedOption={selectedCluster}
+          setSelectedOption={setSelectedCluster}
+        />
         <SketchGraph
           dad_score={sameDad}
           mom_score={sameMom}
