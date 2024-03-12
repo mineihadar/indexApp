@@ -21,12 +21,6 @@ function App() {
     <div className='App'>
       <div className='background-image'>
         <Menu />
-        <div style={{ display: "flex", marginLeft: "30px" }}>
-          <Dropdown parent={"Mom"} setSameVar={setSameMom} filter={filter} />
-          <Dropdown parent={"Dad"} setSameVar={setSameDad} filter={filter} />
-          <p>{sameDad}</p>
-          <p>{sameMom}</p>
-        </div>
         <RadioButtonMom
           selectedOption={sameMom}
           setSelectedOption={setSameMom}
