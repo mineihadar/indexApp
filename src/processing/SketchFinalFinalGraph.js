@@ -1,40 +1,41 @@
 import React, {useState} from "react";
 import Sketch from "react-p5";
 import info from "../new_info.json";
-import {groupFilters} from "../helpers/groupFilters";
 
-// TODO temp- this I need to get from outside
 // score = 0: none
 // score = 1: similarity
 // score = 2: difference
 let prev_dad_score = 0;
 let prev_mom_score = 0;
-let order_val = "Closeness_To_Dad";
+let order_val = "Closeness_To_Mom"; // temp
 
 // general
 let first = true;
 
 // text
 let text = false;
+let textSize = 12;
 let category_arr = [];
-
+let bigCircleR;
 
 // Constance
 let regularDotRadius = 4;
+let inFilterDotRadius = 6;
 let regularDotSpeed = 0.05;
-let myDotRadius = 8;
+let myDotRadius = 10;
 let myDotSpeed = 0.01;
 let IN_FILTER = 0;
 let OUT_FILTER = 1;
 
-// bg color
+// color
 let bgColor;
 let dotInitializeColor;
 let myDotColor;
 let inFilterColor;
 let outOfFilterColor;
 let hoverColor;
-let optionsColors = [];
+let font;
+let textColor;
 
 // array of dots
 // allDots[0]- me!
@@ -53,7 +54,6 @@ class DotObject {
     this.cur_coords = new DotCoords(x, y);
     this.next_coords = new DotCoords(x, y);
     this.cur_filter = 0;
-    this.prev_filter = -1;
     this.cur_order = 0;
     this.r = r;
     this.color = color;
@@ -77,44 +77,17 @@ export default ({dad_score, mom_score}) => {
 
   const setup = async (p5, canvasParentRef) => {
     p5.createCanvas(1000, 800).parent(canvasParentRef);
-    bgColor = p5.color(210, 217, 193);
-    dotInitializeColor = p5.color(0,0,0);
-    myDotColor = p5.color(28, 0, 86);
-    inFilterColor = p5.color(70, 27, 123);
-    outOfFilterColor = p5.color(0,0,0);
-    hoverColor = p5.color(255, 0, 0);
+    font = p5.loadFont("/Users/keren/indexApp/assets/IBMPlexMono-Medium.ttf");
 
+    bigCircleR = p5.height / 3;
+    bgColor = p5.color(5, 9, 28);
+    dotInitializeColor = p5.color(253,253,253);
+    myDotColor = p5.color(125, 73, 142);
+    inFilterColor = dotInitializeColor;
+    outOfFilterColor = bgColor;
+    hoverColor = p5.color(119, 180, 228);
+    textColor = dotInitializeColor;
 
-    optionsColors.push(p5.color(198, 208, 87));
-    optionsColors.push(p5.color(82, 62, 205));
-    optionsColors.push(p5.color(125, 20, 0));
-    optionsColors.push(p5.color(102, 51, 81));
-    optionsColors.push(p5.color(125, 93, 94));
-    //TODO need different colors
-
-    optionsColors.push(p5.color(228, 171, 135));
-    optionsColors.push(p5.color(176, 186, 135));
-    optionsColors.push(p5.color(156, 113, 136));
-    optionsColors.push(p5.color(82, 129, 184));
-    optionsColors.push(p5.color(197, 149, 96));
-
-    optionsColors.push(p5.color(228, 171, 135));
-    optionsColors.push(p5.color(176, 186, 135));
-    optionsColors.push(p5.color(156, 113, 136));
-    optionsColors.push(p5.color(82, 129, 184));
-    optionsColors.push(p5.color(197, 149, 96));
-
-    optionsColors.push(p5.color(228, 171, 135));
-    optionsColors.push(p5.color(176, 186, 135));
-    optionsColors.push(p5.color(156, 113, 136));
-    optionsColors.push(p5.color(82, 129, 184));
-    optionsColors.push(p5.color(197, 149, 96));
-
-    optionsColors.push(p5.color(228, 171, 135));
-    optionsColors.push(p5.color(176, 186, 135));
-    optionsColors.push(p5.color(156, 113, 136));
-    optionsColors.push(p5.color(82, 129, 184));
-    optionsColors.push(p5.color(197, 149, 96));
 
     p5.background(bgColor);
   };
@@ -136,6 +109,17 @@ export default ({dad_score, mom_score}) => {
       let deltaY = dot.next_coords.y - dot.cur_coords.y;
       dot.cur_coords.x += deltaX * dot.speed;
       dot.cur_coords.y += deltaY * dot.speed;
+      if (dot.cur_filter === OUT_FILTER){
+        p5.stroke(inFilterColor);
+        p5.strokeWeight(1);
+      }
+      else{
+        p5.noStroke();
+      }
+      if (info[i].Work_Type_Dad === "Design"){
+        dot.r = myDotRadius;
+      }
+
       dot.drawThisDot(p5);
     }
   }
@@ -175,7 +159,7 @@ export default ({dad_score, mom_score}) => {
 
     for (let i=0; i<allDots.length; i++){
       let curDot = allDots[i];
-      if ( Math.abs(curDot.cur_coords.x - x) <= curDot.r && Math.abs(curDot.cur_coords.y - y) <= curDot.r){
+      if ( Math.abs(curDot.cur_coords.x - x) <= curDot.r * 2 && Math.abs(curDot.cur_coords.y - y) <= curDot.r * 2){
         if (curDot.color !== hoverColor){
           curDot.other_color = curDot.color;
           curDot.color = hoverColor;
@@ -310,15 +294,15 @@ export default ({dad_score, mom_score}) => {
     if (amountOfOrders === 1){
       return chooseCoordsInSquare(p5, centerX, centerY, sideLength, sideLength);
     }
-
+/*
     else if (amountOfOrders === 2) {
       if (curOrder === 0) {
-        return chooseCoordsInSquare(p5,centerX - (sideLength / 2), centerY, sideLength, sideLength);
+        return chooseCoordsInSquare(p5,centerX - (sideLength / 4), centerY, sideLength/ 2, sideLength / 2);
       }
       else if (curOrder === 1) {
-        return chooseCoordsInSquare(p5,centerX + (sideLength / 2), centerY, sideLength, sideLength);
+        return chooseCoordsInSquare(p5,centerX + (sideLength / 4), centerY, sideLength / 2, sideLength / 2);
       }
-    }
+    }*/
 
     else {
 
@@ -344,7 +328,7 @@ export default ({dad_score, mom_score}) => {
       let x = leftUpX + (radius * col) + (radius / 2);
       let y = leftUpY + (radius_y * row) + (radius / 2);
 
-      return chooseCoordsInSquare(p5, x, y, radius, radius);
+      return chooseCoordsInSquare(p5, x, y, radius - textSize, radius - textSize);
     }
 
   }
@@ -459,10 +443,10 @@ export default ({dad_score, mom_score}) => {
 
       // get new coords for this dot
       if (dot.cur_filter === IN_FILTER){
-        newDotCoords = chooseCoordsInFilter(p5, p5.height / 3, dot.cur_order, sectionsAmount);
+        newDotCoords = chooseCoordsInFilter(p5, bigCircleR, dot.cur_order, sectionsAmount);
       }
       if (dot.cur_filter === OUT_FILTER){
-        newDotCoords = chooseCoordsOutOfFilter(p5, p5.height / 3);
+        newDotCoords = chooseCoordsOutOfFilter(p5, bigCircleR);
       }
 
       // see if the coords won't create a dot that is overlapping with other dots
@@ -506,13 +490,54 @@ export default ({dad_score, mom_score}) => {
         // change color to category color (but the last one which is you)
         if (allDots[i].cur_filter === IN_FILTER && i !== (allDots.length -1))
         {
-          allDots[i].color = optionsColors[category_arr.indexOf(info[i][order_val])];
-          allDots[i].other_color = optionsColors[category_arr.indexOf(info[i][order_val])];
+
+          allDots[i].color = inFilterColor;
+          allDots[i].other_color = inFilterColor;
         }
         // update dot coords
         updateDotNewPosition(p5, allDots[i], i, true, category_arr.length);
     }
 
+  }
+
+  function drawText(p5){
+    let centerX = p5.width/2;
+    let centerY = p5.height/2;
+    let amountOfOrders = category_arr.length;
+    let circleDiameter = 2 * bigCircleR;
+    let sideLength = circleDiameter / Math.sqrt(2) ;
+
+    let sqrt = Math.sqrt(amountOfOrders);
+    let sqrtBeforeDot = Math.ceil(sqrt);
+    for (let curOrder = 0; curOrder < amountOfOrders; curOrder++)
+    {
+      let row =  Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
+      let part = ((curOrder + 1) / sqrtBeforeDot) % 1;
+      if (part === 0){part = 1}
+      let col = (part * sqrtBeforeDot) - 1;
+
+      let radius = sideLength / sqrtBeforeDot;
+      let radius_y;
+      // see if the last row is necessary, if not- change the row height
+      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot){
+        // last row is not necessary
+        radius_y = sideLength / (sqrtBeforeDot - 1);
+      }
+      else {radius_y = radius;}
+
+      let leftUpX = centerX - (sideLength / 2);
+      let leftUpY = centerY - (sideLength / 2);
+      // write under batch
+      let x = leftUpX + (radius * col) + (radius / 2);
+      let y = leftUpY + (radius_y * row) + radius + 5;
+      // write above batch
+      // let x = leftUpX + (radius * col) + (radius / 2);
+      // let y = leftUpY + (radius_y * row) + (radius / 2);
+      p5.textSize(textSize);
+      p5.textFont(font);
+      p5.fill(textColor);
+      p5.text(category_arr[curOrder], x, y);
+    }
   }
 
 
@@ -609,12 +634,16 @@ export default ({dad_score, mom_score}) => {
         {
           allDots[i].color = inFilterColor;
           allDots[i].other_color = inFilterColor;
+          allDots[i].r = inFilterDotRadius;
         }
         else {
           allDots[i].color = outOfFilterColor;
           allDots[i].other_color = outOfFilterColor;
+          allDots[i].r = regularDotRadius;
+
         }
       }
+      allDots[i].cur_order = 0;
 
       // update dot coords
       updateDotNewPosition(p5, allDots[i], i, false, [1]);
@@ -651,6 +680,9 @@ export default ({dad_score, mom_score}) => {
     p5.background(bgColor);
     checkIfHovering(p5);
     drawDots(p5);
+    if (text){
+      drawText(p5);
+    }
 
   };
 
