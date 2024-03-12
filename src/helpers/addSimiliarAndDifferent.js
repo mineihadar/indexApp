@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-const jsonFilePath = "./src/new_info.json";
-const info = require("../new_info.json");
+const jsonFilePath = "./src/newer_info.json";
+const info = require("../newer_info.json");
 
 //const jsonFile = fs.createWriteStream(jsonFilePath);
 
