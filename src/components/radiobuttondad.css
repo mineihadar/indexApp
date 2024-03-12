@@ -1,0 +1,71 @@
+.eight-option-radio {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.option-radio-dad {
+  /* Hide the default radio button */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Create a custom radio button */
+  width: 65px;
+  height: 65px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 2px solid #fdfdfd;
+  background-color: none; /* Color of the circle */
+  outline: none;
+  /* Center the radio button within its container */
+  position: relative;
+}
+
+.option-text {
+  font-family: "80kb";
+  color: #fdfdfd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-label {
+  position: relative;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.option-radio-dad:hover {
+  background-color: #fdfdfd;
+  opacity: 0.3;
+}
+
+.option-radio-dad:checked {
+  background-color: #b4d4c8;
+  border: 2px solid #b4d4c8;
+}
+
+.option-radio-dad:checked + .option-text {
+  color: #05091c; /* Change color when radio button is checked */
+}
+
+.option-text:checked {
+  color: #05091c;
+}
+
+.selected-option {
+  font-weight: bold;
+}
