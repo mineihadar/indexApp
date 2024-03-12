@@ -65,8 +65,8 @@ class DotObject {
 }
 
 export default ({ dad_score, mom_score }) => {
-  console.log(dad_score);
-  console.log(mom_score);
+  // console.log(dad_score);
+  // console.log(mom_score);
 
   // State controlled by button press
   const [isOrderDots, setIsOrderDots] = useState(false);

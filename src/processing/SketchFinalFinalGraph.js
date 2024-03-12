@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Sketch from "react-p5";
 import info from "../new_info.json";
 
@@ -71,7 +71,7 @@ class DotObject {
   }
 }
 
-export default ({dad_score, mom_score}) => {
+export default ({ dad_score, mom_score }) => {
   // State controlled by button press
   const [isOrderDots, setIsOrderDots] = useState(false);
 
@@ -81,13 +81,12 @@ export default ({dad_score, mom_score}) => {
 
     bigCircleR = p5.height / 3;
     bgColor = p5.color(5, 9, 28);
-    dotInitializeColor = p5.color(253,253,253);
+    dotInitializeColor = p5.color(253, 253, 253);
     myDotColor = p5.color(125, 73, 142);
     inFilterColor = dotInitializeColor;
     outOfFilterColor = bgColor;
     hoverColor = p5.color(119, 180, 228);
     textColor = dotInitializeColor;
-
 
     p5.background(bgColor);
   };
@@ -102,21 +101,19 @@ export default ({dad_score, mom_score}) => {
    */
   function drawDots(p5) {
     for (let i = 0; i < allDots.length; i++) {
-
       let dot = allDots[i];
       // Move the point towards point B
       let deltaX = dot.next_coords.x - dot.cur_coords.x;
       let deltaY = dot.next_coords.y - dot.cur_coords.y;
       dot.cur_coords.x += deltaX * dot.speed;
       dot.cur_coords.y += deltaY * dot.speed;
-      if (dot.cur_filter === OUT_FILTER){
+      if (dot.cur_filter === OUT_FILTER) {
         p5.stroke(inFilterColor);
         p5.strokeWeight(1);
-      }
-      else{
+      } else {
         p5.noStroke();
       }
-      if (info[i].Work_Type_Dad === "Design"){
+      if (info[i].Work_Type_Dad === "Design") {
         dot.r = myDotRadius;
       }
 
@@ -132,14 +129,14 @@ export default ({dad_score, mom_score}) => {
    * @param dotIndexInAllDots - the index of the current dot
    * @returns {boolean}
    */
-  function checkOverlapping(p5, newDotCoords, newDotR, dotIndexInAllDots){
+  function checkOverlapping(p5, newDotCoords, newDotR, dotIndexInAllDots) {
     for (let j = 0; j < dotIndexInAllDots; j++) {
       let other = allDots[j];
       let d = p5.dist(
-          newDotCoords.x,
-          newDotCoords.y,
-          other.next_coords.x,
-          other.next_coords.y
+        newDotCoords.x,
+        newDotCoords.y,
+        other.next_coords.x,
+        other.next_coords.y
       );
       // overlap
       if (d < newDotR + other.r) {
@@ -153,23 +150,25 @@ export default ({dad_score, mom_score}) => {
    * Check if our mouse is currently over a dot
    * @param p5
    */
-  function checkIfHovering(p5){
+  function checkIfHovering(p5) {
     let x = p5.mouseX;
     let y = p5.mouseY;
 
-    for (let i=0; i<allDots.length; i++){
+    for (let i = 0; i < allDots.length; i++) {
       let curDot = allDots[i];
-      if ( Math.abs(curDot.cur_coords.x - x) <= curDot.r * 2 && Math.abs(curDot.cur_coords.y - y) <= curDot.r * 2){
-        if (curDot.color !== hoverColor){
+      if (
+        Math.abs(curDot.cur_coords.x - x) <= curDot.r * 2 &&
+        Math.abs(curDot.cur_coords.y - y) <= curDot.r * 2
+      ) {
+        if (curDot.color !== hoverColor) {
           curDot.other_color = curDot.color;
           curDot.color = hoverColor;
         }
-      }
-      else {curDot.color = curDot.other_color;} // set color back
+      } else {
+        curDot.color = curDot.other_color;
+      } // set color back
     }
-
   }
-
 
   /************************/
   /* initialize functions */
@@ -206,17 +205,22 @@ export default ({dad_score, mom_score}) => {
         overlapping = false;
 
         // get coords for this dot
-        curDotCoords = chooseCoordsOnShape(p5, 10, p5.height / 2, 1,  [1]);
+        curDotCoords = chooseCoordsOnShape(p5, 10, p5.height / 2, 1, [1]);
 
         // see if the coords won't create a dot that is overlapping with other dots
-        overlapping = checkOverlapping(p5, curDotCoords, regularDotRadius, allDots.length);
+        overlapping = checkOverlapping(
+          p5,
+          curDotCoords,
+          regularDotRadius,
+          allDots.length
+        );
       }
 
       let r = regularDotRadius;
       // TODO for now the special are the Work_Type_Dad=design but need to add to csv if have picture
-     if (info[i].Work_Type_Dad === "Design"){
-       r = myDotRadius;
-     }
+      if (info[i].Work_Type_Dad === "Design") {
+        r = myDotRadius;
+      }
 
       // found coords that are not overlapping! create a new dot
       allDots.push(
@@ -234,22 +238,26 @@ export default ({dad_score, mom_score}) => {
     let overlapping = true;
     while (overlapping === true) {
       curDotCoords = chooseCoordsOnShape(p5, 10, p5.height / 2, 1, [1]);
-      overlapping = checkOverlapping(p5, curDotCoords, regularDotRadius, allDots.length);
+      overlapping = checkOverlapping(
+        p5,
+        curDotCoords,
+        regularDotRadius,
+        allDots.length
+      );
     }
     allDots.push(
-        new DotObject(
-            curDotCoords.x,
-            curDotCoords.y,
-            myDotRadius,
-            myDotColor,
-            myDotSpeed
-        )
+      new DotObject(
+        curDotCoords.x,
+        curDotCoords.y,
+        myDotRadius,
+        myDotColor,
+        myDotSpeed
+      )
     );
 
     // draw all the dots
     initDrawDots(p5);
   }
-
 
   /************************/
   /**** order functions ***/
@@ -261,14 +269,13 @@ export default ({dad_score, mom_score}) => {
    * @returns {DotCoords} - optional dot coords (without testing for overlapping)
    */
   function chooseCoordsOutOfFilter(p5, circleRadius) {
-
     while (true) {
       // Generate random point
       let x = p5.random(0, p5.width);
       let y = p5.random(0, p5.height);
 
       // Check if the point is outside of the circle
-      let distance = p5.dist(x, y, p5.width/2, p5.height/2);
+      let distance = p5.dist(x, y, p5.width / 2, p5.height / 2);
       if (distance > circleRadius) {
         return new DotCoords(x, y);
       }
@@ -284,17 +291,16 @@ export default ({dad_score, mom_score}) => {
    * @returns {DotCoords}  optional dot coords (without testing for overlapping)
    */
   function chooseCoordsInFilter(p5, circleRadius, curOrder, amountOfOrders) {
-
-    let centerX = p5.width/2;
-    let centerY = p5.height/2;
+    let centerX = p5.width / 2;
+    let centerY = p5.height / 2;
     let circleDiameter = 2 * circleRadius;
-    let sideLength = circleDiameter / Math.sqrt(2) ;
+    let sideLength = circleDiameter / Math.sqrt(2);
     //let sideLength = circleDiameter - (circleDiameter / 20 );
 
-    if (amountOfOrders === 1){
+    if (amountOfOrders === 1) {
       return chooseCoordsInSquare(p5, centerX, centerY, sideLength, sideLength);
-    }
-/*
+    } else {
+    /*
     else if (amountOfOrders === 2) {
       if (curOrder === 0) {
         return chooseCoordsInSquare(p5,centerX - (sideLength / 4), centerY, sideLength/ 2, sideLength / 2);
@@ -303,34 +309,39 @@ export default ({dad_score, mom_score}) => {
         return chooseCoordsInSquare(p5,centerX + (sideLength / 4), centerY, sideLength / 2, sideLength / 2);
       }
     }*/
-
-    else {
-
       // Check if n is a perfect square
       let sqrt = Math.sqrt(amountOfOrders);
       let sqrtBeforeDot = Math.ceil(sqrt);
-      let row =  Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
+      let row = Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
       let part = ((curOrder + 1) / sqrtBeforeDot) % 1;
-      if (part === 0){part = 1}
-      let col = (part * sqrtBeforeDot) - 1;
+      if (part === 0) {
+        part = 1;
+      }
+      let col = part * sqrtBeforeDot - 1;
 
       let radius = sideLength / sqrtBeforeDot;
       let radius_y;
       // see if the last row is necessary, if not- change the row height
-      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot){
+      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot) {
         // last row is not necessary
         radius_y = sideLength / (sqrtBeforeDot - 1);
+      } else {
+        radius_y = radius;
       }
-      else {radius_y = radius;}
 
-      let leftUpX = centerX - (sideLength / 2);
-      let leftUpY = centerY - (sideLength / 2);
-      let x = leftUpX + (radius * col) + (radius / 2);
-      let y = leftUpY + (radius_y * row) + (radius / 2);
+      let leftUpX = centerX - sideLength / 2;
+      let leftUpY = centerY - sideLength / 2;
+      let x = leftUpX + radius * col + radius / 2;
+      let y = leftUpY + radius_y * row + radius / 2;
 
-      return chooseCoordsInSquare(p5, x, y, radius - textSize, radius - textSize);
+      return chooseCoordsInSquare(
+        p5,
+        x,
+        y,
+        radius - textSize,
+        radius - textSize
+      );
     }
-
   }
 
   /**
@@ -344,8 +355,11 @@ export default ({dad_score, mom_score}) => {
    */
   function chooseCoordsInSquare(p5, centerX, centerY, w, h) {
     let max_r;
-    if (w > h) { max_r = h / 2;}
-    else { max_r = w / 2;}
+    if (w > h) {
+      max_r = h / 2;
+    } else {
+      max_r = w / 2;
+    }
     let cur_r = p5.random(0, max_r);
     let angle = p5.random(0, p5.TWO_PI);
 
@@ -364,18 +378,23 @@ export default ({dad_score, mom_score}) => {
    * @param dotsInSectionArr - amount of don't in this dot section
    * * * @returns {DotCoords}
    */
-  function chooseCoordsOnShape(p5, minRadius, maxRadius, curOrder, dotsInSectionArr) {
-
+  function chooseCoordsOnShape(
+    p5,
+    minRadius,
+    maxRadius,
+    curOrder,
+    dotsInSectionArr
+  ) {
     let radius = p5.random(minRadius, maxRadius);
     let angle = p5.random(0, p5.TWO_PI);
     let x, y;
 
-    if (dotsInSectionArr.length === 1){ // without inner order
+    if (dotsInSectionArr.length === 1) {
+      // without inner order
       // Convert polar coordinates to Cartesian coordinates
-      x = (p5.width / 2) + radius * p5.cos(angle);
-      y = (p5.height / 2) + radius * p5.sin(angle);
-    }
-    else{
+      x = p5.width / 2 + radius * p5.cos(angle);
+      y = p5.height / 2 + radius * p5.sin(angle);
+    } else {
       // Pie chart
       /*
       let angleGap = 10;
@@ -398,12 +417,16 @@ export default ({dad_score, mom_score}) => {
       let dotAngle = 360 / allDotsInFilter;
       let sectionAngle = dotAngle * dotsInSectionArr[curOrder];
       let startAngle = 0;
-      for (let i= 0; i < curOrder; i++){
+      for (let i = 0; i < curOrder; i++) {
         startAngle += dotAngle * dotsInSectionArr[i];
       }
 
-      let dx = (p5.width / 2) + maxRadius * Math.cos(p5.radians(startAngle + (sectionAngle / 2)));
-      let dy = (p5.height / 2) + maxRadius * Math.sin(p5.radians(startAngle + (sectionAngle / 2)));
+      let dx =
+        p5.width / 2 +
+        maxRadius * Math.cos(p5.radians(startAngle + sectionAngle / 2));
+      let dy =
+        p5.height / 2 +
+        maxRadius * Math.sin(p5.radians(startAngle + sectionAngle / 2));
 
       let dotSpace = (p5.TWO_PI * maxRadius) / allDotsInFilter;
       let sectionSpace = dotSpace * dotsInSectionArr[curOrder];
@@ -413,11 +436,9 @@ export default ({dad_score, mom_score}) => {
       // Convert polar coordinates to Cartesian coordinates
       x = dx + sectionRadius * Math.cos(angle);
       y = dy + sectionRadius * Math.sin(angle);
-
     }
     return new DotCoords(x, y);
   }
-
 
   /**
    * choose new coords for a dot
@@ -428,7 +449,13 @@ export default ({dad_score, mom_score}) => {
    * @param sectionsAmount - amount of sections to divide the dots to
    * * * (to check if not overlapping with dots that are already have new coords)
    */
-  function updateDotNewPosition(p5, dot, dotIndexInAllDots, arriveFromOrder, sectionsAmount) {
+  function updateDotNewPosition(
+    p5,
+    dot,
+    dotIndexInAllDots,
+    arriveFromOrder,
+    sectionsAmount
+  ) {
     let newDotCoords;
     let overlapping = true;
 
@@ -442,15 +469,25 @@ export default ({dad_score, mom_score}) => {
       overlapping = false;
 
       // get new coords for this dot
-      if (dot.cur_filter === IN_FILTER){
-        newDotCoords = chooseCoordsInFilter(p5, bigCircleR, dot.cur_order, sectionsAmount);
+      if (dot.cur_filter === IN_FILTER) {
+        newDotCoords = chooseCoordsInFilter(
+          p5,
+          bigCircleR,
+          dot.cur_order,
+          sectionsAmount
+        );
       }
-      if (dot.cur_filter === OUT_FILTER){
+      if (dot.cur_filter === OUT_FILTER) {
         newDotCoords = chooseCoordsOutOfFilter(p5, bigCircleR);
       }
 
       // see if the coords won't create a dot that is overlapping with other dots
-      overlapping = checkOverlapping(p5, newDotCoords, dot.r, dotIndexInAllDots);
+      overlapping = checkOverlapping(
+        p5,
+        newDotCoords,
+        dot.r,
+        dotIndexInAllDots
+      );
     }
 
     // found coords that are not overlapping! change the coords
@@ -473,7 +510,7 @@ export default ({dad_score, mom_score}) => {
 
       let res = info[i][order_val];
 
-      if (allDots[i].cur_filter === IN_FILTER){
+      if (allDots[i].cur_filter === IN_FILTER) {
         allDotsInFilter++;
 
         // if this is the first time we saw this category
@@ -486,50 +523,49 @@ export default ({dad_score, mom_score}) => {
       allDots[i].cur_order = category_arr.indexOf(res);
     }
 
-      for (let i = 0; i < allDots.length; i++) {
-        // change color to category color (but the last one which is you)
-        if (allDots[i].cur_filter === IN_FILTER && i !== (allDots.length -1))
-        {
-
-          allDots[i].color = inFilterColor;
-          allDots[i].other_color = inFilterColor;
-        }
-        // update dot coords
-        updateDotNewPosition(p5, allDots[i], i, true, category_arr.length);
+    for (let i = 0; i < allDots.length; i++) {
+      // change color to category color (but the last one which is you)
+      if (allDots[i].cur_filter === IN_FILTER && i !== allDots.length - 1) {
+        allDots[i].color = inFilterColor;
+        allDots[i].other_color = inFilterColor;
+      }
+      // update dot coords
+      updateDotNewPosition(p5, allDots[i], i, true, category_arr.length);
     }
-
   }
 
-  function drawText(p5){
-    let centerX = p5.width/2;
-    let centerY = p5.height/2;
+  function drawText(p5) {
+    let centerX = p5.width / 2;
+    let centerY = p5.height / 2;
     let amountOfOrders = category_arr.length;
     let circleDiameter = 2 * bigCircleR;
-    let sideLength = circleDiameter / Math.sqrt(2) ;
+    let sideLength = circleDiameter / Math.sqrt(2);
 
     let sqrt = Math.sqrt(amountOfOrders);
     let sqrtBeforeDot = Math.ceil(sqrt);
-    for (let curOrder = 0; curOrder < amountOfOrders; curOrder++)
-    {
-      let row =  Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
+    for (let curOrder = 0; curOrder < amountOfOrders; curOrder++) {
+      let row = Math.ceil((curOrder + 1) / sqrtBeforeDot) - 1;
       let part = ((curOrder + 1) / sqrtBeforeDot) % 1;
-      if (part === 0){part = 1}
-      let col = (part * sqrtBeforeDot) - 1;
+      if (part === 0) {
+        part = 1;
+      }
+      let col = part * sqrtBeforeDot - 1;
 
       let radius = sideLength / sqrtBeforeDot;
       let radius_y;
       // see if the last row is necessary, if not- change the row height
-      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot){
+      if (sqrtBeforeDot * sqrtBeforeDot - amountOfOrders >= sqrtBeforeDot) {
         // last row is not necessary
         radius_y = sideLength / (sqrtBeforeDot - 1);
+      } else {
+        radius_y = radius;
       }
-      else {radius_y = radius;}
 
-      let leftUpX = centerX - (sideLength / 2);
-      let leftUpY = centerY - (sideLength / 2);
+      let leftUpX = centerX - sideLength / 2;
+      let leftUpY = centerY - sideLength / 2;
       // write under batch
-      let x = leftUpX + (radius * col) + (radius / 2);
-      let y = leftUpY + (radius_y * row) + radius + 5;
+      let x = leftUpX + radius * col + radius / 2;
+      let y = leftUpY + radius_y * row + radius + 5;
       // write above batch
       // let x = leftUpX + (radius * col) + (radius / 2);
       // let y = leftUpY + (radius_y * row) + (radius / 2);
@@ -540,8 +576,6 @@ export default ({dad_score, mom_score}) => {
     }
   }
 
-
-
   /************************/
   /**** filter functions ***/
   /************************/
@@ -551,69 +585,82 @@ export default ({dad_score, mom_score}) => {
    * It depends on whether we care about this filter (mom_score and dad_score)
    * and if it answers the need to be in that filter is so
    */
-  function chooseFilters(dotIndex){
+  function chooseFilters(dotIndex) {
     // score = 0: none
     // score = 1: similarity
     // score = 2: difference
 
     allDots[dotIndex].cur_filter = OUT_FILTER; // otherwise-out of filter
 
-    if (dad_score === 0 && mom_score === 0){ // dad doesn't matter, mom doesn't matter
+    if (dad_score === 0 && mom_score === 0) {
+      // dad doesn't matter, mom doesn't matter
       allDots[dotIndex].cur_filter = IN_FILTER;
       return;
     }
-    if (dad_score === 1 && mom_score === 0) { // similarity to dad, mom doesn't matter
-      if (info[dotIndex]["Similarity_Dad"] >= 50)
-      {
+    if (dad_score === 1 && mom_score === 0) {
+      // similarity to dad, mom doesn't matter
+      if (info[dotIndex]["Similarity_Dad"] >= 50) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 2 && mom_score === 0) { // difference from dad, mom doesn't matter
-      if (info[dotIndex]["Difference_Dad"] >= 50)
-      {
+    if (dad_score === 2 && mom_score === 0) {
+      // difference from dad, mom doesn't matter
+      if (info[dotIndex]["Difference_Dad"] >= 50) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 0 && mom_score === 1) { // dad doesn't matter, similarity to mom
-      if (info[dotIndex]["Similarity_Mom"] >= 50)
-      {
+    if (dad_score === 0 && mom_score === 1) {
+      // dad doesn't matter, similarity to mom
+      if (info[dotIndex]["Similarity_Mom"] >= 50) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 1 && mom_score === 1) { // similarity to dad, similarity to mom
-      if (info[dotIndex]["Similarity_Dad"] >= 50 && info[dotIndex]["Similarity_Mom"] >= 50)
-      {
+    if (dad_score === 1 && mom_score === 1) {
+      // similarity to dad, similarity to mom
+      if (
+        info[dotIndex]["Similarity_Dad"] >= 50 &&
+        info[dotIndex]["Similarity_Mom"] >= 50
+      ) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 2 && mom_score === 1) { // difference from dad, similarity to mom
-      if (info[dotIndex]["Difference_Dad"] >= 50 && info[dotIndex]["Similarity_Mom"] >= 50)
-      {
+    if (dad_score === 2 && mom_score === 1) {
+      // difference from dad, similarity to mom
+      if (
+        info[dotIndex]["Difference_Dad"] >= 50 &&
+        info[dotIndex]["Similarity_Mom"] >= 50
+      ) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 0 && mom_score === 2) { // dad doesn't matter, difference from mom
-      if (info[dotIndex]["Difference_Mom"] >= 50)
-      {
+    if (dad_score === 0 && mom_score === 2) {
+      // dad doesn't matter, difference from mom
+      if (info[dotIndex]["Difference_Mom"] >= 50) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 1 && mom_score === 2) { // similarity to dad, difference from mom
-      if (info[dotIndex]["Similarity_Dad"] >= 50 && info[dotIndex]["Difference_Mom"] >= 50)
-      {
+    if (dad_score === 1 && mom_score === 2) {
+      // similarity to dad, difference from mom
+      if (
+        info[dotIndex]["Similarity_Dad"] >= 50 &&
+        info[dotIndex]["Difference_Mom"] >= 50
+      ) {
         allDots[dotIndex].cur_filter = IN_FILTER;
         return;
       }
     }
-    if (dad_score === 2 && mom_score === 2) { // difference from dad, difference from mom
-      if (info[dotIndex]["Difference_Dad"] >= 50 && info[dotIndex]["Difference_Mom"] >= 50)
-      {
+    if (dad_score === 2 && mom_score === 2) {
+      // difference from dad, difference from mom
+      if (
+        info[dotIndex]["Difference_Dad"] >= 50 &&
+        info[dotIndex]["Difference_Mom"] >= 50
+      ) {
         allDots[dotIndex].cur_filter = IN_FILTER;
       }
     }
@@ -628,19 +675,15 @@ export default ({dad_score, mom_score}) => {
       // is the dot in the filter or out of the filter
       chooseFilters(i);
 
-      if (i !== allDots.length-1)
-      {
-        if (allDots[i].cur_filter === IN_FILTER)
-        {
+      if (i !== allDots.length - 1) {
+        if (allDots[i].cur_filter === IN_FILTER) {
           allDots[i].color = inFilterColor;
           allDots[i].other_color = inFilterColor;
           allDots[i].r = inFilterDotRadius;
-        }
-        else {
+        } else {
           allDots[i].color = outOfFilterColor;
           allDots[i].other_color = outOfFilterColor;
           allDots[i].r = regularDotRadius;
-
         }
       }
       allDots[i].cur_order = 0;
@@ -657,33 +700,30 @@ export default ({dad_score, mom_score}) => {
       first = false;
     }
 
-
-    console.log("dad_score: " + dad_score);
+    //console.log("dad_score: " + dad_score);
 
     // filter dots
     if (prev_dad_score !== dad_score || prev_mom_score !== mom_score) {
-       show && filterDots(p5);
-       prev_mom_score = mom_score;
-       prev_dad_score = dad_score;
-       text = false;
+      show && filterDots(p5);
+      prev_mom_score = mom_score;
+      prev_dad_score = dad_score;
+      text = false;
     }
 
-
     // order dots
-     if (isOrderDots) {
-       show && orderDots(p5);
-       setIsOrderDots(false);
-       text = true;
+    if (isOrderDots) {
+      show && orderDots(p5);
+      setIsOrderDots(false);
+      text = true;
     }
 
     //draw
     p5.background(bgColor);
     checkIfHovering(p5);
     drawDots(p5);
-    if (text){
+    if (text) {
       drawText(p5);
     }
-
   };
 
   return (
