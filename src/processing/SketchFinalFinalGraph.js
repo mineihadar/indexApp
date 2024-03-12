@@ -710,22 +710,26 @@ export default ({ dad_score, mom_score }) => {
       first = false;
     }
 
-    //console.log("dad_score: " + dad_score);
-
     // filter dots
     if (prev_dad_score !== dad_score || prev_mom_score !== mom_score) {
       show && filterDots(p5);
       prev_mom_score = mom_score;
       prev_dad_score = dad_score;
       text = false;
+      prev_order_val = "None";
+      order_val = "None";
     }
 
-    // order dots
-    if (isOrderDots) {
+    if ( order_val !== prev_order_val) {
       show && orderDots(p5);
-      setIsOrderDots(false);
+      prev_order_val = order_val;
       text = true;
     }
+
+    /* order dots
+    if (isOrderDots) {
+       order_val = "Sex";
+    }*/
 
     //draw
     p5.background(bgColor);
