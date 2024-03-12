@@ -1,5 +1,21 @@
+@font-face {
+  font-family: "80kb";
+  src: url("./fonts/80-kb-Soft.woff") format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: "masada";
+  src: url("./fonts/Masada-Bold.woff") format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 .App {
   text-align: center;
+  background-color: #05091c;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -7,6 +23,36 @@
   pointer-events: none;
 }
 
+.Menu {
+  height: 79px;
+  background-color: pink;
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+
+.Menu-text {
+  font-size: 16px;
+  font-family: "80kb";
+}
+
+.Menu-text p {
+  color: #fdfdfd;
+  margin: 0;
+}
+
+.Logo {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.Logo-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
