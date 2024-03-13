@@ -1,0 +1,17 @@
+.legend-div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+}
+.legend-circle1 {
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.legend-div p {
+  color: #fdfdfd;
+  font-family: "80kb";
+}

@@ -6,6 +6,7 @@ import Menu from "./components/Menu";
 import RadioButton from "./components/RadioButton";
 import RadioButtonMom from "./components/RadioButtonMom";
 import RadioButtonDad from "./components/RadioButtonDad";
+import Legend from "./components/Legend";
 function App() {
   const filter = {
     none: 0,
@@ -29,6 +30,33 @@ function App() {
             justifyContent: "space-between",
           }}>
           <div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                position: "absolute",
+                right: "650px",
+                top: "860px",
+              }}>
+              <Legend
+                text='את.ה'
+                color='#7D498E'
+                size='25px'
+                isOutline={false}
+              />
+              <Legend
+                text='סינון'
+                color='#fdfdfd'
+                size='25px'
+                isOutline={false}
+              />
+              <Legend
+                text='כל השאר'
+                color='none'
+                size='25px'
+                isOutline={false}
+              />
+            </div>
             <RadioButtonMom
               selectedOption={sameMom}
               setSelectedOption={setSameMom}
